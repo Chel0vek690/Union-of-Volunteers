@@ -12,6 +12,12 @@
     <None Remove="Resources\Fonts\dinpro.otf" />
     <None Remove="Resources\Fonts\dinpro_bold.otf" />
     <None Remove="Resources\Fonts\dinpro_medium.otf" />
+    <None Remove="Resources\Images\AboutOrganization1.png" />
+    <None Remove="Resources\Images\AboutOrganization2.png" />
+    <None Remove="Resources\Images\AboutOrganization3.png" />
+    <None Remove="Resources\Images\AboutOrganization4.png" />
+    <None Remove="Resources\Images\AboutOrganization5.png" />
+    <None Remove="Resources\Images\BackgroundAbout.png" />
     <None Remove="Resources\Images\bg.png" />
     <None Remove="Resources\Images\logo.png" />
     <None Remove="Resources\Images\what_are_we_doing.png" />
@@ -49,6 +55,11 @@
 
   <ItemGroup>
     <Resource Include="Resources\Fonts\dinpro.otf" />
+    <Resource Include="Resources\Images\AboutOrganization2.png" />
+    <Resource Include="Resources\Images\AboutOrganization3.png" />
+    <Resource Include="Resources\Images\AboutOrganization4.png" />
+    <Resource Include="Resources\Images\AboutOrganization5.png" />
+    <Resource Include="Resources\Images\BackgroundAbout.png" />
     <Resource Include="Resources\Images\bg.png" />
     <Resource Include="Resources\Images\logo.png" />
     <Resource Include="Resources\Images\what_are_we_doing.png" />
@@ -61,6 +72,10 @@
 
   <ItemGroup>
     <Resource Include="Resources\Fonts\dinpro_medium.otf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\AboutOrganization1.png" />
   </ItemGroup>
 
 </Project>

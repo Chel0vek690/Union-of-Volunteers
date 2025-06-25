@@ -3,10 +3,25 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Union_of_Volunteers.Views.Pages"
+             xmlns:local="clr-namespace:Union_of_Volunteers.Views.Pages" xmlns:pages="clr-namespace:Union_of_Volunteers.ViewModels.Pages" d:DataContext="{d:DesignInstance Type=pages:AboutPageViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <Button Style="{StaticResource CancelButton}" Command="{Binding CancelButtonCommand}" Width="212" Height="80" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="80.5 77.1 0 0" Content="Назад" />
+        <Image Source="/Resources/Images/BackgroundAbout.png" VerticalAlignment="Bottom" />
+
+        <TextBlock Style="{StaticResource TextTitle}" Text="{Binding CurrentSlide.Title}" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 80 0 0"/>
+        <Image Source="{Binding CurrentSlide.Image}" Width="1605" Height="693" />
+
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+            <Button Content="&#x25C0;" Command="{Binding PrevSlideCommand}"
+                HorizontalAlignment="Left" VerticalAlignment="Center"
+                Width="50" Height="50" Margin="20"/>
+
+            <Button Content="&#x25B6;" Command="{Binding NextSlideCommand}"
+                HorizontalAlignment="Right" VerticalAlignment="Center"
+                Width="50" Height="50" Margin="20"/>
+        </StackPanel>
+        
     </Grid>
 </UserControl>

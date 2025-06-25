@@ -1,5 +1,4 @@
-﻿// MainPageViewModel.cs
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using MvvmNavigationLib.Services;
 
@@ -9,8 +8,7 @@ namespace Union_of_Volunteers.ViewModels.Pages
     {
         private readonly NavigationService<AboutPageViewModel> _aboutNavigationService;
 
-        public MainPageViewModel(
-            NavigationService<AboutPageViewModel> aboutNavigationService)
+        public MainPageViewModel(NavigationService<AboutPageViewModel> aboutNavigationService)
         {
             _aboutNavigationService = aboutNavigationService;
         }

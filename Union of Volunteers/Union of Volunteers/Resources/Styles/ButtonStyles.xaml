@@ -63,6 +63,34 @@
         </Setter>
     </Style>
 
+    <Style x:Key="CancelButton">
+        <Setter Property="Button.Background" Value="#FFFFFF" />
+        <Setter Property="Button.Width" Value="212" />
+        <Setter Property="Button.Height" Value="80" />
+        <Setter Property="Button.FontFamily" Value="pack://application:,,,/SberQ;component/Resourses/Fonts/#dinpro_medium"/>
+        <Setter Property="Button.FontSize" Value="24" />
+        <Setter Property="Button.Foreground" Value="#E31E24" />
+        <Setter Property="Button.BorderBrush" Value="#FFFFFFFF" />
+        <Setter Property="Button.Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="border" Background="{TemplateBinding Background}" BorderThickness="3" BorderBrush="#E31E24" CornerRadius="12">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="#19F45952" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="Button>">
+        <Setter Property="Button.Background" Value="#12529E" />
+    </Style>
+
 
 
 

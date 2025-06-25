@@ -17,10 +17,9 @@ namespace Union_of_Volunteers.HostBuilders
                 services.AddUtilityNavigationServices<NavigationStore>();
 
                 services.AddNavigationService<MainPageViewModel, NavigationStore>();
-                
+                services.AddNavigationService<AboutPageViewModel, NavigationStore>();
 
-               
-
+                services.AddTransient<AboutPageViewModel>();
             });
 
             return builder;

@@ -9,9 +9,6 @@ using Union_of_Volunteers.ViewModels.Pages;
 
 namespace Union_of_Volunteers
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
     public partial class App : Application
     {
         private readonly IHost _appHost = CreateHostBuilder().Build();

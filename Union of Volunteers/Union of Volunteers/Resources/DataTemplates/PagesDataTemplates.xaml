@@ -5,7 +5,8 @@
     <DataTemplate DataType="{x:Type pages:MainPageViewModel}">
         <pages1:MainView DataContext="{Binding}"/>
     </DataTemplate>
+
     <DataTemplate DataType="{x:Type pages:AboutPageViewModel}">
-        <pages1:AboutView />
+        <pages1:AboutView DataContext="{Binding}" />
     </DataTemplate>
 </ResourceDictionary>
