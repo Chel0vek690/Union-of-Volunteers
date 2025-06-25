@@ -15,7 +15,11 @@ namespace Union_of_Volunteers.HostBuilders
             {
                 services.AddSingleton<NavigationStore>();
                 services.AddUtilityNavigationServices<NavigationStore>();
+
                 services.AddNavigationService<MainPageViewModel, NavigationStore>();
+                
+
+               
 
             });
 

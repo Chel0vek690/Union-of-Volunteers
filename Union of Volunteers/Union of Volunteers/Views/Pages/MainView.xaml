@@ -23,8 +23,8 @@
             <Image Style="{StaticResource what_are_we_doing}" Margin="0 58 0 0" />
             <TextBlock Style="{StaticResource TextDescription}" Margin="0 8 0 0" Width="907.4" Text="Помогаем тем, кто нуждается в нашей помощи (семьям и пожилым в трудной жизненной ситуации, сиротам, выпускникам детских домов, отказникам, приемным семьям)"  />
             <StackPanel Style="{StaticResource MainView1}">
-                <Button Style="{StaticResource BlueButtons}" Width="411.5" Content="Наши проекты"/>
-                <Button Style="{StaticResource BlueButtons}" Width="411.5" Margin="26 0 0 0" Content="Об организации" />
+                <Button Style="{StaticResource BlueButtons}"  Command="{Binding GoToProjectsCommand}" Width="411.5" Content="Наши проекты"/>
+                <Button Style="{StaticResource BlueButtons}" Width="411.5" Margin="26 0 0 0" Content="Об организации" Command="{Binding GoToAboutCommand}" />
             </StackPanel>
             <Button Content="Пожертвовать" Width="849" Margin="0 26 0 0" Style="{StaticResource RedButtons}" />
         </StackPanel>
