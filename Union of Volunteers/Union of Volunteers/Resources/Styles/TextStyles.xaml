@@ -1,17 +1,35 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <FontFamily x:Key="Inter" >pack://application,,,/Resources/Fonts/#Inter</FontFamily>
-    <FontFamily x:Key="Rubik" >pack://application,,,/Resources/Fonts/#Rubik</FontFamily>
+    <FontFamily x:Key="dinpro_bold" >pack://application,,,/Resources/Fonts/#dinpro_bold</FontFamily>
+    <FontFamily x:Key="dinpro_medium" >pack://application,,,/Resources/Fonts/#dinpro_medium</FontFamily>
+    <FontFamily x:Key="dinpro" >pack://application,,,/Resources/Fonts/#dinpro</FontFamily>
     <Style TargetType="TextBlock" x:Key="BaseTextStyle">
         <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
         <Setter Property="TextWrapping" Value="Wrap"/>
     </Style>
 
     <Style TargetType="TextBlock" BasedOn="{StaticResource BaseTextStyle}" x:Key="InterText">
-        <Setter Property="FontFamily" Value="{StaticResource Inter}"/>
+        <!--<Setter Property="FontFamily" Value="{StaticResource Inter}"/>-->
     </Style>
 
     <Style TargetType="TextBlock" BasedOn="{StaticResource BaseTextStyle}" x:Key="RubikText">
-        <Setter Property="FontFamily" Value="{StaticResource Rubik}"/>
+        <!--<Setter Property="FontFamily" Value="{StaticResource Rubik}"/>-->
     </Style>
+
+    <Style x:Key="TextTitle">
+        <Setter Property="TextBlock.FontFamily" Value="{StaticResource dinpro_bold}"/>
+        <Setter Property="TextBlock.FontSize" Value="54" />
+        <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+        <Setter Property="TextBlock.TextAlignment" Value="Center" />
+    </Style>
+
+    <Style x:Key="TextDescription">
+        <Setter Property="TextBlock.FontFamily" Value="{StaticResource dinpro}"/>
+        <Setter Property="TextBlock.FontWeight" Value="Regular"/>
+        <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+        <Setter Property="TextBlock.TextAlignment" Value="Center" />
+        <Setter Property="TextBlock.FontSize" Value="28" />
+    </Style>
+    
+    
 </ResourceDictionary>

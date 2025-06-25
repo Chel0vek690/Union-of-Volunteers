@@ -9,6 +9,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Fonts\dinpro.otf" />
+    <None Remove="Resources\Fonts\dinpro_bold.otf" />
+    <None Remove="Resources\Fonts\dinpro_medium.otf" />
+    <None Remove="Resources\Images\bg.png" />
+    <None Remove="Resources\Images\logo.png" />
+    <None Remove="Resources\Images\what_are_we_doing.png" />
+    <None Remove="Resources\Images\who_are_we.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.2" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.1" />
     <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.135" />
@@ -38,8 +48,19 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Resources\Fonts\" />
-    <Folder Include="Resources\Images\" />
+    <Resource Include="Resources\Fonts\dinpro.otf" />
+    <Resource Include="Resources\Images\bg.png" />
+    <Resource Include="Resources\Images\logo.png" />
+    <Resource Include="Resources\Images\what_are_we_doing.png" />
+    <Resource Include="Resources\Images\who_are_we.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Fonts\dinpro_bold.otf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Fonts\dinpro_medium.otf" />
   </ItemGroup>
 
 </Project>

@@ -5,5 +5,6 @@ namespace Union_of_Volunteers.ViewModels.Pages
 {
     public partial class MainPageViewModel : ObservableObject
     {
+
     }
 }

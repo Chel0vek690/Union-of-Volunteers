@@ -7,6 +7,8 @@
                 <ResourceDictionary Source="pack://application:,,,/MainComponents;component/Themes/Generic.xaml"/>
                 <ResourceDictionary Source="/Resources/CommonBrushes.xaml"/>
                 <ResourceDictionary Source="/Resources/Styles/TextStyles.xaml"/>
+                <ResourceDictionary Source="/Resources/Styles/ContainerStyles.xaml"/>
+                <ResourceDictionary Source="/Resources/Styles/ImageStyles.xaml"/>
                 <ResourceDictionary Source="/Resources/Styles/ButtonStyles.xaml"/>
                 <ResourceDictionary Source="/Resources/DataTemplates/PopupDataTemplates.xaml"/>
                 <ResourceDictionary Source="/Resources/DataTemplates/PagesDataTemplates.xaml"/>
