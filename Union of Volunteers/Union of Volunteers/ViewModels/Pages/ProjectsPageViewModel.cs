@@ -13,7 +13,6 @@ namespace Union_of_Volunteers.ViewModels.Pages
         private readonly NavigationService<SelectedProjectPageViewModel> _selectedProjectNavigationService;
         private readonly NavigationHelper _navigationHelper;
 
-        [ObservableProperty]
         public List<ProjectsApi> projects;
 
         private readonly ApiHelper _apiService;
@@ -27,7 +26,7 @@ namespace Union_of_Volunteers.ViewModels.Pages
 
         private async Task LoadData()
         {
-            Projects = await _apiService.GetProjects();
+            projects = await _apiService.GetProjects();
         }
 
         [RelayCommand]
@@ -36,7 +35,6 @@ namespace Union_of_Volunteers.ViewModels.Pages
             _navigationHelper.Project = project;
             Debug.WriteLine($"Выбран проект: {project.title}");
             _selectedProjectNavigationService.Navigate();
-
         }
     }
 }

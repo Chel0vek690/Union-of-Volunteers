@@ -15,15 +15,7 @@ namespace Union_of_Volunteers.Helpers
        
         public async Task<List<ProjectsApi>> GetProjects()
         {
-            List<ProjectsApi> data = null;
-            try
-            {
-                data = await _apiClient.GetProjects();
-            }
-            catch (Exception ex) 
-            { 
-                MessageBox.Show(ex.Message);
-            }
+            List<ProjectsApi> data = await _apiClient.GetProjects();
             return data;
         }
     }
