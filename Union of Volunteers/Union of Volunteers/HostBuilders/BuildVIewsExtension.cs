@@ -29,7 +29,7 @@ namespace Union_of_Volunteers.HostBuilders
                 services.AddSingleton<MainWindowViewModel>();
                 services.AddSingleton<AboutPageViewModel>();
                 services.AddSingleton<ProjectsPageViewModel>();
-                services.AddSingleton<SelectedProjectPageViewModel>();
+                services.AddTransient<SelectedProjectPageViewModel>();
                 services.AddSingleton<DonationPageViewModel>();
                 services.AddSingleton(s => new Views.Windows.MainWindow()
                 {

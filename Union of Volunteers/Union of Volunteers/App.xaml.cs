@@ -33,7 +33,8 @@ namespace Union_of_Volunteers
                 .BuildMainNavigation()
                 .BuildModalNavigation()
                 .BuildApi()
-                .BuildViews();
+                .BuildViews()
+                .BuildNavigationHelper();
         }
 
         protected override async void OnStartup(StartupEventArgs e)
