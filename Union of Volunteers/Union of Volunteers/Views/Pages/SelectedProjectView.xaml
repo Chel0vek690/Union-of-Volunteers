@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="Union_of_Volunteers.Views.Pages.SelectedProjectView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Union_of_Volunteers.Views.Pages"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <TextBlock Text="{Binding SelectedTitle}" />
+        <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Vertical">
+                <Image Source="{Binding SelectedImageUrl}" />
+                <Button Content="Пожертвовать" />
+            </StackPanel>
+            <ScrollViewer>
+                <TextBlock Text="{Binding SelectedDescription}" TextWrapping="Wrap" Width="773" />
+            </ScrollViewer>
+            
+        </StackPanel>
+    </Grid>
+</UserControl>

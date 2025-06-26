@@ -18,8 +18,8 @@ namespace Union_of_Volunteers.HostBuilders
 
                 services.AddNavigationService<MainPageViewModel, NavigationStore>();
                 services.AddNavigationService<AboutPageViewModel, NavigationStore>();
-
-                services.AddTransient<AboutPageViewModel>();
+                services.AddNavigationService<ProjectsPageViewModel, NavigationStore>();
+                services.AddNavigationService<SelectedProjectPageViewModel, NavigationStore>();
             });
 
             return builder;

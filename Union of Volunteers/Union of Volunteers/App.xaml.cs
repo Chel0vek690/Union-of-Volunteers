@@ -1,8 +1,8 @@
-﻿using System.Windows;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MvvmNavigationLib.Services;
 using Serilog;
+using System.Windows;
 using Union_of_Volunteers.Helpers;
 using Union_of_Volunteers.HostBuilders;
 using Union_of_Volunteers.ViewModels.Pages;

@@ -9,4 +9,13 @@
     <DataTemplate DataType="{x:Type pages:AboutPageViewModel}">
         <pages1:AboutView DataContext="{Binding}" />
     </DataTemplate>
+
+    <DataTemplate DataType="{x:Type pages:ProjectsPageViewModel}">
+        <pages1:ProjectsView DataContext="{Binding}" />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type pages:SelectedProjectPageViewModel}">
+        <pages1:SelectedProjectView DataContext="{Binding}" />
+    </DataTemplate>
+
 </ResourceDictionary>

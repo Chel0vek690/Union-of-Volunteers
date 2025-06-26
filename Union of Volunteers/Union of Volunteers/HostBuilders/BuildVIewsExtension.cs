@@ -27,6 +27,9 @@ namespace Union_of_Volunteers.HostBuilders
                     s.GetRequiredService<CloseNavigationService<ModalNavigationStore>>()));
 
                 services.AddSingleton<MainWindowViewModel>();
+                services.AddSingleton<AboutPageViewModel>();
+                services.AddSingleton<ProjectsPageViewModel>();
+                services.AddSingleton<SelectedProjectPageViewModel>();
                 services.AddSingleton(s => new Views.Windows.MainWindow()
                 {
                     DataContext = s.GetRequiredService<MainWindowViewModel>()
