@@ -20,6 +20,7 @@ namespace Union_of_Volunteers.HostBuilders
                 services.AddNavigationService<AboutPageViewModel, NavigationStore>();
                 services.AddNavigationService<ProjectsPageViewModel, NavigationStore>();
                 services.AddNavigationService<SelectedProjectPageViewModel, NavigationStore>();
+                services.AddNavigationService<DonationPageViewModel, NavigationStore>();
             });
 
             return builder;

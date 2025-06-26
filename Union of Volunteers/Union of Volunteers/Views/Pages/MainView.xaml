@@ -26,7 +26,7 @@
                 <Button Style="{StaticResource BlueButtons}" Command="{Binding GoToProjectsCommand}" Width="411.5" Content="Наши проекты"/>
                 <Button Style="{StaticResource BlueButtons}"  Command="{Binding GoToAboutCommand}" Width="411.5" Margin="26 0 0 0" Content="Об организации" />
             </StackPanel>
-            <Button Content="Пожертвовать" Width="849" Margin="0 26 0 0" Style="{StaticResource RedButtons}" />
+            <Button Style="{StaticResource RedButtons}" Command="{Binding GoToDonationCommand}" Content="Пожертвовать" Width="849" Margin="0 26 0 0"  />
         </StackPanel>
     </Grid>
 

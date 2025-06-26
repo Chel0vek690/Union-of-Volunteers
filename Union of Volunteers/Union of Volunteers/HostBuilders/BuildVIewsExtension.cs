@@ -30,6 +30,7 @@ namespace Union_of_Volunteers.HostBuilders
                 services.AddSingleton<AboutPageViewModel>();
                 services.AddSingleton<ProjectsPageViewModel>();
                 services.AddSingleton<SelectedProjectPageViewModel>();
+                services.AddSingleton<DonationPageViewModel>();
                 services.AddSingleton(s => new Views.Windows.MainWindow()
                 {
                     DataContext = s.GetRequiredService<MainWindowViewModel>()

@@ -8,9 +8,11 @@ namespace Union_of_Volunteers.ViewModels.Pages
     {
         private readonly NavigationService<AboutPageViewModel> _aboutNavigationService;
         private readonly NavigationService<ProjectsPageViewModel> _projectsNavigationService;
+        private readonly NavigationService<DonationPageViewModel> _donationNavigationService;
 
-        public MainPageViewModel(NavigationService<AboutPageViewModel> aboutNavigationService, NavigationService<ProjectsPageViewModel> projectsNavigationService)
+        public MainPageViewModel(NavigationService<AboutPageViewModel> aboutNavigationService, NavigationService<ProjectsPageViewModel> projectsNavigationService, NavigationService<DonationPageViewModel> donationNavigationService)
         {
+            _donationNavigationService = donationNavigationService;
             _aboutNavigationService = aboutNavigationService;
             _projectsNavigationService = projectsNavigationService;
         }
@@ -20,5 +22,8 @@ namespace Union_of_Volunteers.ViewModels.Pages
 
         [RelayCommand]
         private void GoToProjects() => _projectsNavigationService.Navigate();
+
+        [RelayCommand]
+        private void GoToDonation() => _donationNavigationService.Navigate();
     }
 }
