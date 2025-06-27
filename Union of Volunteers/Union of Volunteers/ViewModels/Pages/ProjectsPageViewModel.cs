@@ -24,12 +24,12 @@ namespace Union_of_Volunteers.ViewModels.Pages
             _navigationHelper = navigationHelper;
             _selectedProjectNavigationService = selectedProjectNavigationService;
             _apiService = apiService;
-            _ = LoadData();
+            LoadData();
         }
 
-        private async Task LoadData()
+        private async void LoadData()
         {
-            projects = await _apiService.GetProjects();
+            Projects = await _apiService.GetProjects();
         }
 
         [RelayCommand]
