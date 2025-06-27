@@ -22,6 +22,7 @@
     <None Remove="Resources\Images\CardMethodIcon.png" />
     <None Remove="Resources\Images\logo.png" />
     <None Remove="Resources\Images\PaymentMentmethodIcon.png" />
+    <None Remove="Resources\Images\projectsBacground.png" />
     <None Remove="Resources\Images\QrMethodIcon.png" />
     <None Remove="Resources\Images\Spinner.png" />
     <None Remove="Resources\Images\what_are_we_doing.png" />
@@ -68,6 +69,7 @@
     <Resource Include="Resources\Images\bg.png" />
     <Resource Include="Resources\Images\logo.png" />
     <Resource Include="Resources\Images\PaymentMentmethodIcon.png" />
+    <Resource Include="Resources\Images\projectsBacground.png" />
     <Resource Include="Resources\Images\QrMethodIcon.png" />
     <Resource Include="Resources\Images\Spinner.png" />
     <Resource Include="Resources\Images\what_are_we_doing.png" />

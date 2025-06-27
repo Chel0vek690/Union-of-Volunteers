@@ -10,8 +10,10 @@
              mc:Ignorable="d" 
              d:DesignHeight="1080" d:DesignWidth="1920">
     <Grid>
-        <Button Style="{StaticResource CancelButton}" Command="{Binding CancelButtonCommand}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="80.5 77.1 0 0" Content="Назад" />
-        <ScrollViewer Width="1000" Height="807">
+        <Image Style="{StaticResource logoRight}" />
+        <Image Style="{StaticResource projectsBackground}" />
+        <Button Style="{StaticResource CancelButton}" Command="{Binding CancelButtonCommand}" />
+        <ScrollViewer Width="1430" Height="807" Margin="0 103 0 0" Style="{StaticResource ScrollViewer}">
             <ItemsControl ItemsSource="{Binding Projects}" >
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
@@ -20,35 +22,9 @@
                 </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate DataType="{x:Type interface:Api}" >
-                        <Button Background="Transparent" 
-                BorderThickness="0" 
-                Padding="0" 
-                Margin="10"
-                Command="{Binding DataContext.SelectProjectCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}"
-                CommandParameter="{Binding}">
-                            <Border Background="White" 
-                    BorderBrush="LightGray" 
-                    BorderThickness="1" 
-                    CornerRadius="10" 
-                    Width="300" 
-                    Height="400">
-                                <Border Margin="10" Padding="10" Background="White" CornerRadius="8" BorderBrush="Gray" BorderThickness="1">
-                                    <StackPanel Width="456" Height="514">
-                                        <Border
-                                        CornerRadius="8,8,8,8" 
-                                        ClipToBounds="True">
-                                            <Image Source="{Binding ImageUrl}" 
-                                           Height="229"
-                                           Stretch="UniformToFill"
-                                           HorizontalAlignment="Center"
-                                           VerticalAlignment="Center"/>
-                                        </Border>
-                                        <TextBlock Text="{Binding title}" FontWeight="Bold" FontSize="16"/>
-                                        <TextBlock Text="{Binding description}" TextWrapping="Wrap" Margin="0,5,0,0"/>
-                                    </StackPanel>
-                                </Border>
-                            </Border>
-                        </Button>
+                        <Border Style="{StaticResource BorderCard}" >
+                            <Button Style="{StaticResource projectCard}" Command="{Binding DataContext.SelectProjectCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}" CommandParameter="{Binding}"/>
+                        </Border>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>

@@ -17,4 +17,70 @@
         <Setter Property="Margin" Value="0 0 0 40" />
     </Style>
 
+    <Style x:Key="BorderCard" TargetType="Border">
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="#165C53" />
+        <Setter Property="Margin" Value="4" />
+        <Setter Property="CornerRadius" Value="8" />
+        <Setter Property="Background" Value="#4D9E93" />
+    </Style>
+
+    <Style x:Key="NiceScrollBar" TargetType="ScrollBar">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ScrollBar">
+                    <Grid Background="#E9E9E9" Width="14">
+                        <Track Name="PART_Track" IsDirectionReversed="true" Width="14">
+                            <Track.DecreaseRepeatButton >
+                                <RepeatButton  IsHitTestVisible="False" BorderThickness="0" Command="ScrollBar.LineUpCommand" VerticalAlignment="Stretch" Background="Transparent">
+                                    <RepeatButton.Clip >
+                                        <RectangleGeometry Rect="0 0 1430 14" RadiusX="11" RadiusY="11"  />
+                                    </RepeatButton.Clip>
+                                </RepeatButton>
+                            </Track.DecreaseRepeatButton>
+                            <Track.Thumb>
+                                <Thumb Width="14">
+                                    <Thumb.Template>
+                                        <ControlTemplate TargetType="Thumb">
+                                            <Rectangle Fill="#1E1E1E" RadiusX="11" RadiusY="11"/>
+                                        </ControlTemplate>
+                                    </Thumb.Template>
+                                </Thumb>
+                            </Track.Thumb>
+                            <Track.IncreaseRepeatButton>
+                                <RepeatButton IsHitTestVisible="False" BorderThickness="0" VerticalAlignment="Stretch" Command="ScrollBar.LineDownCommand" Background="Transparent"/>
+                            </Track.IncreaseRepeatButton>
+                        </Track>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ScrollViewer">
+        <Setter Property="ScrollViewer.Height" Value="1430"/>
+        <Setter Property="ScrollViewer.Width" Value="807"/>
+        <Setter Property="ScrollViewer.Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ScrollViewer">
+                    <Grid>
+                        <ScrollContentPresenter />
+                        <ScrollBar x:Name="PART_VerticalScrollBar"
+                   Orientation="Vertical"
+                   Style="{StaticResource NiceScrollBar}"
+                   Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
+                   Maximum="{TemplateBinding ScrollableHeight}"
+                   Value="{TemplateBinding VerticalOffset}"
+                   ViewportSize="{TemplateBinding ViewportHeight}"
+                   Margin="1400,4,0,0" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    
+
+
+
 </ResourceDictionary>

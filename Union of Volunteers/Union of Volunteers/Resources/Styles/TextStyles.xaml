@@ -30,4 +30,21 @@
         <Setter Property="TextAlignment" Value="Center" />
         <Setter Property="FontSize" Value="28" />
     </Style>
+
+    <Style x:Key="titleCard" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource dinproBold}"/>
+        <Setter Property="Width" Value="408"/>
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="TextWrapping" Value="Wrap" />
+        <Setter Property="FontSize" Value="28" />
+        <Setter Property="Foreground" Value="White" />
+    </Style>
+
+    <Style x:Key="descriptionCard" TargetType="TextBlock">
+        <Setter Property="Height" Value="125" />
+        <Setter Property="Width" Value="408" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="TextWrapping" Value="Wrap" />
+        <Setter Property="Foreground" Value="White" />
+    </Style>
 </ResourceDictionary>

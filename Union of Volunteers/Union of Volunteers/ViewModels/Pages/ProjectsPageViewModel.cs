@@ -30,6 +30,7 @@ namespace Union_of_Volunteers.ViewModels.Pages
         private async void LoadData()
         {
             Projects = await _apiService.GetProjects();
+
         }
 
         [RelayCommand]
