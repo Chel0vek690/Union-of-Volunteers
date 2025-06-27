@@ -7,20 +7,15 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Button Style="{StaticResource CancelButton}" Command="{Binding CancelButtonCommand}" Width="212" Height="80" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="80.5 77.1 0 0" Content="Назад" />
-        <Image Source="/Resources/Images/BackgroundAbout.png" VerticalAlignment="Bottom" />
+        <Button Style="{StaticResource CancelButton}" Command="{Binding CancelButtonCommand}" />
+        <Image Style="{StaticResource backgroundAboutPage}" />
+        <Image Style="{StaticResource logoRight}" />
+        <TextBlock Style="{StaticResource TextTitle}" Text="{Binding CurrentSlide.Title}" Margin="0 80 0 0"/>
+        <Image Style="{StaticResource dataAbout}" Source="{Binding CurrentSlide.Image}" />
 
-        <TextBlock Style="{StaticResource TextTitle}" Text="{Binding CurrentSlide.Title}" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 80 0 0"/>
-        <Image Source="{Binding CurrentSlide.Image}" Width="1605" Height="693" />
-
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
-            <Button Content="&#x25C0;" Command="{Binding PrevSlideCommand}"
-                HorizontalAlignment="Left" VerticalAlignment="Center"
-                Width="50" Height="50" Margin="20"/>
-
-            <Button Content="&#x25B6;" Command="{Binding NextSlideCommand}"
-                HorizontalAlignment="Right" VerticalAlignment="Center"
-                Width="50" Height="50" Margin="20"/>
+        <StackPanel Style="{StaticResource RoundButtonsContainer}">
+            <Button Style="{StaticResource RoundButtonLeft}" Command="{Binding PrevSlideCommand}" />
+            <Button Style="{StaticResource RoundButtonRight}" Command="{Binding NextSlideCommand}" />
         </StackPanel>
         
     </Grid>

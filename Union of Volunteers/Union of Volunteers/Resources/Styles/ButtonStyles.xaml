@@ -19,13 +19,13 @@
         </Setter>
     </Style>-->
 
-    <Style x:Key="RedButtons">
-        <Setter Property="Button.Background" Value="#E31E24" />
-        <Setter Property="Button.Height" Value="120" />
-        <Setter Property="Button.FontSize" Value="40" />
-        <Setter Property="Button.FontFamily" Value="pack://application:,,,/;component/Resources/Fonts/#dinpro_medium"/>
-        <Setter Property="Button.Foreground" Value="#FFFFFF" />
-        <Setter Property="Button.Template">
+    <Style x:Key="RedButtons" TargetType="Button">
+        <Setter Property="Background" Value="#E31E24" />
+        <Setter Property="Height" Value="120" />
+        <Setter Property="FontSize" Value="40" />
+        <Setter Property="FontFamily" Value="pack://application:,,,/;component/Resources/Fonts/#dinpro_medium"/>
+        <Setter Property="Foreground" Value="#FFFFFF" />
+        <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Border x:Name="border" Background="{TemplateBinding Background}" CornerRadius="16">
@@ -41,13 +41,13 @@
         </Setter>
     </Style>
 
-    <Style x:Key="BlueButtons">
-        <Setter Property="Button.Background" Value="#2683F1" />
-        <Setter Property="Button.Height" Value="120" />
-        <Setter Property="Button.FontSize" Value="40" />
-        <Setter Property="Button.FontFamily" Value="pack://application:,,,/;component/Resources/Fonts/#dinpro_medium"/>
-        <Setter Property="Button.Foreground" Value="#FFFFFF" />
-        <Setter Property="Button.Template">
+    <Style x:Key="BlueButtons" TargetType="Button">
+        <Setter Property="Background" Value="#2683F1" />
+        <Setter Property="Height" Value="120" />
+        <Setter Property="FontSize" Value="40" />
+        <Setter Property="FontFamily" Value="pack://application:,,,/;component/Resources/Fonts/#dinpro_medium"/>
+        <Setter Property="Foreground" Value="#FFFFFF" />
+        <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Border x:Name="border" Background="{TemplateBinding Background}" CornerRadius="16">
@@ -63,16 +63,19 @@
         </Setter>
     </Style>
 
-    <Style x:Key="CancelButton">
-        
-        <Setter Property="Button.Background" Value="#FFFFFF" />
-        <Setter Property="Button.Width" Value="212" />
-        <Setter Property="Button.Height" Value="80" />
-        <Setter Property="Button.FontFamily" Value="pack://application:,,,/SberQ;component/Resourses/Fonts/#dinpro_medium"/>
-        <Setter Property="Button.FontSize" Value="24" />
-        <Setter Property="Button.Foreground" Value="#E31E24" />
-        <Setter Property="Button.BorderBrush" Value="#FFFFFFFF" />
-        <Setter Property="Button.Template">
+    <Style x:Key="CancelButton" TargetType="Button">
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="Margin" Value="80.5 77.1 0 0" />
+        <Setter Property="Content" Value="Назад" />
+        <Setter Property="Background" Value="#FFFFFF" />
+        <Setter Property="Width" Value="212" />
+        <Setter Property="Height" Value="80" />
+        <Setter Property="FontFamily" Value="pack://application:,,,/SberQ;component/Resourses/Fonts/#dinpro_medium"/>
+        <Setter Property="FontSize" Value="24" />
+        <Setter Property="Foreground" Value="#E31E24" />
+        <Setter Property="BorderBrush" Value="#FFFFFFFF" />
+        <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Border x:Name="border" Background="{TemplateBinding Background}" BorderThickness="3" BorderBrush="#E31E24" CornerRadius="12">
@@ -88,12 +91,55 @@
         </Setter>
     </Style>
 
-    <Style x:Key="Button>">
-        <Setter Property="Button.Background" Value="#12529E" />
+    <Style x:Key="RoundButton" TargetType="Button">
+        <Setter Property="Margin" Value="20" />
+        <Setter Property="Width" Value="50"/>
+        <Setter Property="Height" Value="50"/>
+        <Setter Property="Background" Value="#12529E"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        
     </Style>
 
+    <Style x:Key="RoundButtonRight" TargetType="Button" BasedOn="{StaticResource RoundButton}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Ellipse Fill="{TemplateBinding Background}" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}"/>
+                        <Path Stroke="White"
+                      StrokeThickness="4"
+                      StrokeStartLineCap="Round"
+                      StrokeEndLineCap="Round"
+                      Data="M20,15 L32,25 L20,35"/>
+                    </Grid>
 
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 
+    <Style x:Key="RoundButtonLeft" TargetType="Button" BasedOn="{StaticResource RoundButton}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <!-- Круглая основа -->
+                        <Ellipse Fill="{TemplateBinding Background}" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}"/>
+                        <!-- Белая стрелка вправо -->
+                        <Path Stroke="White"
+              StrokeThickness="4"
+              StrokeStartLineCap="Round"
+              StrokeEndLineCap="Round"
+              Data="M20,15 L32,25 L20,35">
+                            <Path.RenderTransform>
+                                <ScaleTransform ScaleX="-1" ScaleY="-1" CenterX="25" CenterY="25"/>
+                            </Path.RenderTransform>
+                        </Path>
+                    </Grid>
 
-
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>

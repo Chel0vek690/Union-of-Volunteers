@@ -9,5 +9,12 @@
         <Setter Property="StackPanel.HorizontalAlignment" Value="Center" />
         <Setter Property="StackPanel.Margin" Value="0 58 0 0" />
     </Style>
-    
+
+    <Style x:Key="RoundButtonsContainer" TargetType="StackPanel">
+        <Setter Property="Orientation" Value="Horizontal" />
+        <Setter Property="VerticalAlignment" Value="Bottom" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="Margin" Value="0 0 0 40" />
+    </Style>
+
 </ResourceDictionary>
