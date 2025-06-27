@@ -257,16 +257,16 @@ namespace Union_of_Volunteers.ViewModels.Pages
         {
             if(selectedProject.title != "Без проекта")
             {
-                if(OwnAmount != "Своя сумма")
+                if (OwnAmount != "Своя сумма")
                 {
-                    _navigationHelper.Project = OwnAmount;
+                    _navigationHelper.Project = new string[] { SelectedProject.title, OwnAmount };
                 }
                 else
                 {
-                    if (_radioButton5000) _navigationHelper.Project = "5000";
-                    else if (_radioButton1000) _navigationHelper.Project = "1000";
-                    else if (_radioButton500) _navigationHelper.Project = "500";
-                    else if (_radioButton100) _navigationHelper.Project = "100";
+                    if (_radioButton5000) _navigationHelper.Project = new string[] { SelectedProject.title, "5000" };
+                    else if (_radioButton1000) _navigationHelper.Project = new string[] { SelectedProject.title, "1000" };
+                    else if (_radioButton500) _navigationHelper.Project = new string[] { SelectedProject.title, "500" };
+                    else if (_radioButton100) _navigationHelper.Project = new string[] { SelectedProject.title, "100" };
                 }
                 _paymentMethodService.Navigate();
             }

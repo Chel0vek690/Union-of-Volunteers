@@ -30,8 +30,8 @@ namespace Union_of_Volunteers.ViewModels.Popups
             _qrMethodPopupViewModel = qrMethodPopupViewModel;
             _modalNavigation = modalNavigation;
             _navigationHelper = navigationHelper;
-            var price1 = _navigationHelper.Project as string;
-            price = price1;
+            var price1 = _navigationHelper.Project as string[];
+            price = price1[1];
 
         }
 

@@ -31,8 +31,8 @@ namespace Union_of_Volunteers.ViewModels.Popups
             _donationProcessingPopupViewModel = donationProcessingPopupViewModel;
             _modalNavigation = modalNavigation;
             _navigationHelper = navigationHelper;
-            var price1 = _navigationHelper.Project as string;
-            price = price1;
+            var price1 = _navigationHelper.Project as string[];
+            price = price1[1];
             timer = new Timer((e) =>
             {
                 _donationProcessingPopupViewModel.Navigate();
@@ -44,6 +44,7 @@ namespace Union_of_Volunteers.ViewModels.Popups
         [RelayCommand]
         public void ExitPopup()
         {
+            timer.Dispose();
             _modalNavigation.CurrentViewModel = null;
         }
     }
