@@ -7,7 +7,9 @@ using MvvmNavigationLib.Stores;
 using Union_of_Volunteers.Models;
 using Union_of_Volunteers.ViewModels;
 using Union_of_Volunteers.ViewModels.Pages;
+using Union_of_Volunteers.ViewModels.Popups;
 using Union_of_Volunteers.ViewModels.Windows;
+using Union_of_Volunteers.Views.Popups;
 
 namespace Union_of_Volunteers.HostBuilders
 {
@@ -31,6 +33,11 @@ namespace Union_of_Volunteers.HostBuilders
                 services.AddSingleton<ProjectsPageViewModel>();
                 services.AddTransient<SelectedProjectPageViewModel>();
                 services.AddSingleton<DonationPageViewModel>();
+                services.AddTransient<PaymentMethodViewModel>();
+                services.AddTransient<CardMethodPopupViewModel>();
+                services.AddTransient<QrMethodPopupViewModel>();
+                services.AddTransient<DonationProcessingPopupViewModel>();
+                services.AddTransient<DonationSentSuccessfullyPopupViewModel>();
                 services.AddSingleton(s => new Views.Windows.MainWindow()
                 {
                     DataContext = s.GetRequiredService<MainWindowViewModel>()

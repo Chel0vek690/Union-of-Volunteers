@@ -11,13 +11,16 @@ namespace Union_of_Volunteers.ViewModels.Pages
     public partial class ProjectsPageViewModel : ObservableObject
     {
         private readonly NavigationService<SelectedProjectPageViewModel> _selectedProjectNavigationService;
+        private readonly NavigationService<MainPageViewModel> _mainPageNavigationService;
         private readonly NavigationHelper _navigationHelper;
 
+        [ObservableProperty]
         public List<ProjectsApi> projects;
 
         private readonly ApiHelper _apiService;
-        public ProjectsPageViewModel(ApiHelper apiService, NavigationService<SelectedProjectPageViewModel> selectedProjectNavigationService, NavigationHelper navigationHelper)
+        public ProjectsPageViewModel(ApiHelper apiService, NavigationService<SelectedProjectPageViewModel> selectedProjectNavigationService, NavigationHelper navigationHelper, NavigationService<MainPageViewModel> mainPageNavigationService)
         {
+            _mainPageNavigationService = mainPageNavigationService;
             _navigationHelper = navigationHelper;
             _selectedProjectNavigationService = selectedProjectNavigationService;
             _apiService = apiService;
@@ -35,6 +38,12 @@ namespace Union_of_Volunteers.ViewModels.Pages
             _navigationHelper.Project = project;
             Debug.WriteLine($"Выбран проект: {project.title}");
             _selectedProjectNavigationService.Navigate();
+        }
+
+        [RelayCommand]
+        private void CancelButton()
+        {
+            _mainPageNavigationService.Navigate();
         }
     }
 }

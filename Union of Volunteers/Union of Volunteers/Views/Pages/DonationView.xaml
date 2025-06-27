@@ -12,7 +12,7 @@
         <Button Content="Назад" Command="{Binding CancelButtonCommand}" Height="80" Width="212" />
         <StackPanel>
             <TextBlock Text="Выберите проект" />
-            <ComboBox Height="30" Width="500" ItemsSource="{Binding Projects}">
+            <ComboBox Height="30" Width="500" ItemsSource="{Binding Projects}" SelectedValue="{Binding SelectedProject}" >
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding title}" />
@@ -42,7 +42,7 @@
             </WrapPanel>
             <StackPanel Orientation="Horizontal">
                 <Button Content="Отмена" Command="{Binding CancelButtonCommand}" Width="388" Height="120" />
-                <Button Content="Пожертвовать" Width="388" Height="120" />
+                <Button Content="Пожертвовать" Command="{Binding GoToPaymentMethodCommand}" Width="388" Height="120" />
             </StackPanel>
         </StackPanel>
     </Grid>

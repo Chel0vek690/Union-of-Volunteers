@@ -11,12 +11,11 @@
         <StackPanel Orientation="Horizontal">
             <StackPanel Orientation="Vertical">
                 <Image Source="{Binding SelectedImageUrl}" Width="823" Height="463.82" />
-                <Button Content="Пожертвовать" />
+                <Button Content="Пожертвовать" Command="{Binding DonateCommand}" />
                 <Button Content="Назад" Command="{Binding CancelButtonCommand}" />
             </StackPanel>
             <ScrollViewer>
                 <TextBlock Text="{Binding SelectedDescription}" TextWrapping="Wrap" Width="773" />
-                
             </ScrollViewer>
             
         </StackPanel>

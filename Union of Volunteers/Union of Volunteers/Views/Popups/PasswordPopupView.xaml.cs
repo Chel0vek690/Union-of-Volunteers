@@ -11,5 +11,10 @@ namespace Union_of_Volunteers.Views.Popups
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+
+        }
     }
 }

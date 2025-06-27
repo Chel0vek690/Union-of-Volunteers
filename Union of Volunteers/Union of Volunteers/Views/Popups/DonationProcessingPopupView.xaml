@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="Union_of_Volunteers.Views.Popups.DonationProcessingPopupView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Union_of_Volunteers.Views.Popups"
+             mc:Ignorable="d" 
+             d:DesignHeight="1080" d:DesignWidth="1920">
+    <UserControl.Resources>
+        <Storyboard x:Key="SpinStoryboard" RepeatBehavior="Forever">
+            <DoubleAnimation
+                Storyboard.TargetName="ImageRotate"
+                Storyboard.TargetProperty="Angle"
+                From="0" To="360"
+                Duration="0:0:5"/>
+        </Storyboard>
+    </UserControl.Resources>
+
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource SpinStoryboard}"/>
+        </EventTrigger>
+    </UserControl.Triggers>
+
+    <Grid Height="486" Width="920" Background="White">
+        <StackPanel Orientation="Vertical">
+            <Image x:Name="SpinnerImage"
+               RenderTransformOrigin="0.5,0.5"
+               Source="/Resources/Images/Spinner.png"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"
+               Width="175" Height="175">
+                <Image.RenderTransform>
+                    <RotateTransform x:Name="ImageRotate" Angle="0"/>
+                </Image.RenderTransform>
+            </Image>
+            <TextBlock Text="Обработка пожертвования" VerticalAlignment="Center" HorizontalAlignment="Center" />
+            <TextBlock Text="Пожалуйста, подождите" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </StackPanel>
+            
+    </Grid>
+</UserControl>

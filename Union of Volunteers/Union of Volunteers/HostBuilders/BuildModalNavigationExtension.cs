@@ -5,6 +5,7 @@ using MvvmNavigationLib.Services;
 using MvvmNavigationLib.Services.ServiceCollectionExtensions;
 using MvvmNavigationLib.Stores;
 using Union_of_Volunteers.ViewModels.Popups;
+using Union_of_Volunteers.Views.Popups;
 
 namespace Union_of_Volunteers.HostBuilders
 {
@@ -20,9 +21,15 @@ namespace Union_of_Volunteers.HostBuilders
                 services.AddNavigationService<PasswordPopupViewModel, ModalNavigationStore>(s => new PasswordPopupViewModel(
                     s.GetRequiredService<CloseNavigationService<ModalNavigationStore>>(),
                     context.Configuration.GetValue<string>("exitPassword") ?? "1234"));
+                services.AddNavigationService<PaymentMethodViewModel, ModalNavigationStore>();
+                services.AddNavigationService<CardMethodPopupViewModel, ModalNavigationStore>();
+                services.AddNavigationService<QrMethodPopupViewModel, ModalNavigationStore>();
+                services.AddNavigationService<DonationProcessingPopupViewModel, ModalNavigationStore>();
+                services.AddNavigationService<DonationSentSuccessfullyPopupViewModel, ModalNavigationStore>();
+
             });
 
             return builder;
         }
     }
-}
+}           

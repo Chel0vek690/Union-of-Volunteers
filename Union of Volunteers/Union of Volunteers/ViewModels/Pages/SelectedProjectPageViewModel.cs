@@ -16,6 +16,7 @@ namespace Union_of_Volunteers.ViewModels.Pages
     {
         private readonly NavigationHelper _navigationHelper;
         private readonly NavigationService<ProjectsPageViewModel> _projectsNavigationService;
+        private readonly NavigationService<DonationPageViewModel> _donationNavigationService;
 
         [ObservableProperty]
         private string selectedTitle;
@@ -26,8 +27,9 @@ namespace Union_of_Volunteers.ViewModels.Pages
         [ObservableProperty]
         private string selectedDescription;
 
-        public SelectedProjectPageViewModel(NavigationHelper navigationHelper, NavigationService<ProjectsPageViewModel> projectsNavigationService)
+        public SelectedProjectPageViewModel(NavigationHelper navigationHelper, NavigationService<ProjectsPageViewModel> projectsNavigationService, NavigationService<DonationPageViewModel> donationNavigationService)
         {
+            _donationNavigationService = donationNavigationService;
             _projectsNavigationService = projectsNavigationService;
             _navigationHelper = navigationHelper;
             var selectedProject = _navigationHelper.Project as ProjectsApi;
@@ -40,6 +42,12 @@ namespace Union_of_Volunteers.ViewModels.Pages
         public void CancelButton()
         {
             _projectsNavigationService.Navigate();
+        }
+
+        [RelayCommand]
+        public void Donate()
+        {
+            _donationNavigationService.Navigate();
         }
     }
 

@@ -5,4 +5,24 @@
     <DataTemplate DataType="{x:Type popups:PasswordPopupViewModel}">
         <popups1:PasswordPopupView DataContext="{Binding}"/>
     </DataTemplate>
+
+    <DataTemplate DataType="{x:Type popups:PaymentMethodViewModel}">
+        <popups1:PaymentMethodPopupView DataContext="{Binding}"/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type popups:CardMethodPopupViewModel}">
+        <popups1:CardMethodPopupView DataContext="{Binding}"/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type popups:QrMethodPopupViewModel}">
+        <popups1:QrMethodPopupView DataContext="{Binding}"/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type popups:DonationProcessingPopupViewModel}">
+        <popups1:DonationProcessingPopupView DataContext="{Binding}"/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type popups:DonationSentSuccessfullyPopupViewModel}">
+        <popups1:DonationSentSuccessfullyPopupView DataContext="{Binding}"/>
+    </DataTemplate>
 </ResourceDictionary>

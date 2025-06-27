@@ -11,23 +11,33 @@ using System.Threading.Tasks;
 using System.Windows;
 using Union_of_Volunteers.Helpers;
 using Union_of_Volunteers.Models;
+using Union_of_Volunteers.ViewModels.Popups;
 
 namespace Union_of_Volunteers.ViewModels.Pages
 {
     public partial class DonationPageViewModel : ObservableObject
     {
         private readonly NavigationService<MainPageViewModel> _mainNavigationService;
+        private readonly NavigationService<PaymentMethodViewModel> _paymentMethodService;
+        private readonly NavigationHelper _navigationHelper;
         private ApiHelper _apiService;
 
         [ObservableProperty]
         private List<ProjectsApi> projects;
 
-        public DonationPageViewModel(ApiHelper apiService, NavigationService<MainPageViewModel> mainNavigationService)
+        [ObservableProperty]
+        private string selectedProject;
+
+        public DonationPageViewModel(ApiHelper apiService, NavigationService<MainPageViewModel> mainNavigationService, NavigationService<PaymentMethodViewModel> paymentMethodService, NavigationHelper navigationHelper)
         {
+            _navigationHelper = navigationHelper;
+            _paymentMethodService = paymentMethodService;
             RadioButton100 = true;
             _mainNavigationService = mainNavigationService;
             _apiService = apiService;
             _ = LoadData();
+            _navigationHelper = navigationHelper;
+            ownAmount = "Своя сумма";
         }
 
         private async Task LoadData()
@@ -45,7 +55,7 @@ namespace Union_of_Volunteers.ViewModels.Pages
                 {
                     _radioButton5000 = value;
                     OnPropertyChanged(nameof(RadioButton5000));
-                    if (value) OwnAmount = "";
+                    if (value) OwnAmount = "Своя сумма";
                 }
             }
         }
@@ -60,7 +70,7 @@ namespace Union_of_Volunteers.ViewModels.Pages
                 {
                     _radioButton1000 = value;
                     OnPropertyChanged(nameof(RadioButton1000));
-                    if (value) OwnAmount = "";
+                    if (value) OwnAmount = "Своя сумма";
                 }
             }
         }
@@ -75,7 +85,7 @@ namespace Union_of_Volunteers.ViewModels.Pages
                 {
                     _radioButton500 = value;
                     OnPropertyChanged(nameof(RadioButton500));
-                    if (value) OwnAmount = "";
+                    if (value) OwnAmount = "Своя сумма";
                 }
             }
         }
@@ -90,7 +100,7 @@ namespace Union_of_Volunteers.ViewModels.Pages
                 {
                     _radioButton100 = value;
                     OnPropertyChanged(nameof(RadioButton100));
-                    if (value) OwnAmount = "";
+                    if (value) OwnAmount = "Своя сумма";
                 }
             }
         }
@@ -109,83 +119,147 @@ namespace Union_of_Volunteers.ViewModels.Pages
         [RelayCommand]
         public void Number1()
         {
-            AllRadioButtonsFalse();
-            OwnAmount += "1";
+            if (ownAmount == "Своя сумма")
+            { 
+                OwnAmount = "1";
+                AllRadioButtonsFalse();
+            }
+            else OwnAmount += "1";
+            
+            
         }
 
         [RelayCommand]
         public void Number2()
         {
-            AllRadioButtonsFalse();
-            OwnAmount += "2";
+            if (ownAmount == "Своя сумма")
+            {
+                OwnAmount = "2";
+                AllRadioButtonsFalse();
+            }
+            else OwnAmount += "2";
         }
 
         [RelayCommand]
         public void Number3()
         {
-            OwnAmount += "3";
+            if (ownAmount == "Своя сумма")
+            {
+                OwnAmount = "3";
+                AllRadioButtonsFalse();
+            }
+            else OwnAmount += "3";
         }
 
         [RelayCommand]
         public void Number4()
         {
-            AllRadioButtonsFalse();
-            OwnAmount += "4";
+            if (ownAmount == "Своя сумма")
+            {
+                OwnAmount = "4";
+                AllRadioButtonsFalse();
+            }
+            else OwnAmount += "4";
         }
 
         [RelayCommand]
         public void Number5()
         {
-            AllRadioButtonsFalse();
-            OwnAmount += "5";
+            if (ownAmount == "Своя сумма")
+            {
+                OwnAmount = "5";
+                AllRadioButtonsFalse();
+            }
+            else OwnAmount += "5";
         }
 
         [RelayCommand]
         public void Number6()
         {
-            AllRadioButtonsFalse();
-            OwnAmount += "6";
+            if (ownAmount == "Своя сумма")
+            {
+                OwnAmount = "6";
+                AllRadioButtonsFalse();
+            }
+            else OwnAmount += "6";
         }
 
         [RelayCommand]
         public void Number7()
         {
-            AllRadioButtonsFalse();
-            OwnAmount += "7";
+            if (ownAmount == "Своя сумма")
+            {
+                OwnAmount = "7";
+                AllRadioButtonsFalse();
+            }
+            else OwnAmount += "7";
         }
 
         [RelayCommand]
         public void Number8()
         {
-            AllRadioButtonsFalse();
-            OwnAmount += "8";
+            if (ownAmount == "Своя сумма")
+            {
+                OwnAmount = "8";
+                AllRadioButtonsFalse();
+            }
+            else OwnAmount += "8";
         }
 
         [RelayCommand]
         public void Number9()
         {
-            AllRadioButtonsFalse();
-            OwnAmount += "9";
+            if (ownAmount == "Своя сумма")
+            {
+                OwnAmount = "9";
+                AllRadioButtonsFalse();
+            }
+            else OwnAmount += "9";
         }
 
         [RelayCommand]
         public void Number0()
         {
-            if (OwnAmount != "") OwnAmount += "0";
+            if (OwnAmount != "Своя сумма") OwnAmount += "0";
         }
 
         [RelayCommand]
         public void ButtonBackspace()
         {
-            OwnAmount = (OwnAmount.Length > 0) ? OwnAmount.Remove(OwnAmount.Length - 1) : "";
-            if (OwnAmount != "") AllRadioButtonsFalse();
-            else RadioButton100 = true;
+            if (OwnAmount.Length > 0 && OwnAmount != "Своя сумма")
+            {
+                OwnAmount = OwnAmount.Remove(OwnAmount.Length - 1);
+                if (string.IsNullOrEmpty(OwnAmount))
+                {
+                    OwnAmount = "Своя сумма";
+                    RadioButton100 = true;
+                }
+            }
         }
 
         [RelayCommand]
         public void CancelButton()
         {
             _mainNavigationService.Navigate();
+        }
+
+        [RelayCommand]
+        public void GoToPaymentMethod()
+        {
+            MessageBox.Show(selectedProject);
+            if(OwnAmount != "Своя сумма")
+            {
+                _navigationHelper.Project = OwnAmount;
+            }
+            else
+            {
+                if (_radioButton5000) _navigationHelper.Project = "5000";
+                else if (_radioButton1000) _navigationHelper.Project = "1000";
+                else if (_radioButton500) _navigationHelper.Project = "500";
+                else if (_radioButton100) _navigationHelper.Project = "100";
+            }
+            
+            _paymentMethodService.Navigate();
         }
     }
 }
