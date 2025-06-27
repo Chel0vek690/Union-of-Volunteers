@@ -137,7 +137,6 @@
                             </Path.RenderTransform>
                         </Path>
                     </Grid>
-
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

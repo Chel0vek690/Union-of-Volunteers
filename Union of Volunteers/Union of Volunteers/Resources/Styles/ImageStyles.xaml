@@ -12,11 +12,13 @@
     <Style x:Key="logoLeft" TargetType="Image" BasedOn="{StaticResource logo}">
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="Margin" Value="125.09 66.8 0 0" />
     </Style>
 
     <Style x:Key="logoRight" TargetType="Image" BasedOn="{StaticResource logo}">
         <Setter Property="HorizontalAlignment" Value="Right" />
         <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="Margin" Value="0 66.8 125.09 0" />
     </Style>
 
     <Style x:Key="Image1" TargetType="Image">

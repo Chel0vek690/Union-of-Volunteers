@@ -59,7 +59,7 @@
 
     <Style x:Key="ScrollViewer">
         <Setter Property="ScrollViewer.Height" Value="1430"/>
-        <Setter Property="ScrollViewer.Width" Value="807"/>
+        <Setter Property="ScrollViewer.Width" Value="817"/>
         <Setter Property="ScrollViewer.Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ScrollViewer">
@@ -72,14 +72,36 @@
                    Maximum="{TemplateBinding ScrollableHeight}"
                    Value="{TemplateBinding VerticalOffset}"
                    ViewportSize="{TemplateBinding ViewportHeight}"
-                   Margin="1400,4,0,0" />
+                   Margin="1400 ,4,0,0" />
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
 
-    
+    <Style x:Key="ScrollViewer1">
+        <Setter Property="ScrollViewer.Height" Value="1430"/>
+        <Setter Property="ScrollViewer.Width" Value="867"/>
+        <Setter Property="ScrollViewer.Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ScrollViewer">
+                    <Grid>
+                        <ScrollContentPresenter />
+                        <ScrollBar x:Name="PART_VerticalScrollBar"
+               Orientation="Vertical"
+               Style="{StaticResource NiceScrollBar}"
+               Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
+               Maximum="{TemplateBinding ScrollableHeight}"
+               Value="{TemplateBinding VerticalOffset}"
+               ViewportSize="{TemplateBinding ViewportHeight}"
+               Margin="850,4,0,0" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
 
 
 

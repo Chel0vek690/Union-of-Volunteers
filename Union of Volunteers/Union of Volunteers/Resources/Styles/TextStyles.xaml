@@ -47,4 +47,10 @@
         <Setter Property="TextWrapping" Value="Wrap" />
         <Setter Property="Foreground" Value="White" />
     </Style>
+
+    <Style x:Key="selectedProjectTitle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource dinproBold}"/>
+        <Setter Property="FontSize" Value="54" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+    </Style>
 </ResourceDictionary>
