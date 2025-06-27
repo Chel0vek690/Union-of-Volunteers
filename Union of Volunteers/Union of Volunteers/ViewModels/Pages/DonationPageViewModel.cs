@@ -26,7 +26,7 @@ namespace Union_of_Volunteers.ViewModels.Pages
         private List<ProjectsApi> projects;
 
         [ObservableProperty]
-        private string selectedProject;
+        private ProjectsApi selectedProject;
 
         public DonationPageViewModel(ApiHelper apiService, NavigationService<MainPageViewModel> mainNavigationService, NavigationService<PaymentMethodViewModel> paymentMethodService, NavigationHelper navigationHelper)
         {
@@ -42,7 +42,16 @@ namespace Union_of_Volunteers.ViewModels.Pages
 
         private async Task LoadData()
         {
+
             Projects = await _apiService.GetProjects();
+            Projects.Insert(0, new ProjectsApi()
+            {
+                id = -1,
+                title = "Без проекта",
+                description = "",
+                image = ""
+            });
+            SelectedProject = Projects[0];
         }
 
         private bool _radioButton5000;
@@ -246,20 +255,22 @@ namespace Union_of_Volunteers.ViewModels.Pages
         [RelayCommand]
         public void GoToPaymentMethod()
         {
-            MessageBox.Show(selectedProject);
-            if(OwnAmount != "Своя сумма")
+            if(selectedProject.title != "Без проекта")
             {
-                _navigationHelper.Project = OwnAmount;
-            }
-            else
-            {
-                if (_radioButton5000) _navigationHelper.Project = "5000";
-                else if (_radioButton1000) _navigationHelper.Project = "1000";
-                else if (_radioButton500) _navigationHelper.Project = "500";
-                else if (_radioButton100) _navigationHelper.Project = "100";
+                if(OwnAmount != "Своя сумма")
+                {
+                    _navigationHelper.Project = OwnAmount;
+                }
+                else
+                {
+                    if (_radioButton5000) _navigationHelper.Project = "5000";
+                    else if (_radioButton1000) _navigationHelper.Project = "1000";
+                    else if (_radioButton500) _navigationHelper.Project = "500";
+                    else if (_radioButton100) _navigationHelper.Project = "100";
+                }
+                _paymentMethodService.Navigate();
             }
             
-            _paymentMethodService.Navigate();
         }
     }
 }
