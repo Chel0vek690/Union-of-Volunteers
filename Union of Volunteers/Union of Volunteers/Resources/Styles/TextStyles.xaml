@@ -68,4 +68,19 @@
         <Setter Property="FontSize" Value="54" />
         <Setter Property="Margin" Value="0 64 0 0" />
     </Style>
+
+    <Style x:Key="CardMethodSum" TargetType="TextBlock" BasedOn="{StaticResource PaymentMethodSum}">
+        <Setter Property="Margin" Value="0 0 0 0" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+
+    <Style x:Key="descriptionPopup" TargetType="TextBlock">
+        <Setter Property="FontWeight" Value="Regular" />
+        <Setter Property="FontSize" Value="30" />
+        <Setter Property="Width" Value="591" />
+        <Setter Property="TextWrapping" Value="Wrap" />
+        <Setter Property="TextAlignment" Value="Center" />
+        <Setter Property="FontFamily" Value="{StaticResource dinpro}" />
+
+    </Style>
 </ResourceDictionary>

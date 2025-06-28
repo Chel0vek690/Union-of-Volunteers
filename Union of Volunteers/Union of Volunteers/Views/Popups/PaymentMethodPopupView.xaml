@@ -20,8 +20,8 @@
                     <Run Text="₽" />
                 </TextBlock>
             </StackPanel>
-            <StackPanel Orientation="Vertical">
-                <Button Style="{StaticResource PaymentMethodsRedButton}" Content="Картой" Command="{Binding CardMethodCommand}" Margin="0 136 0 0" />
+            <StackPanel Style="{StaticResource rightContainerPopup}">
+                <Button Style="{StaticResource PaymentMethodsRedButton}" Content="Картой" Command="{Binding CardMethodCommand}" />
                 <Button Style="{StaticResource PaymentMethodsRedButton}" Content="По QR коду" Command="{Binding QrMethodCommand}" Margin="0 26 0 26" />
                 <Button Style="{StaticResource PaymentMethodsCancelButton}" Content="Отмена" Command="{Binding ExitPopupCommand}" Margin="0 0 0 0" />
             </StackPanel>
