@@ -32,12 +32,9 @@
         <Setter Property="FontSize" Value="28" />
     </Style>
 
-    <Style x:Key="titleCard" TargetType="TextBlock">
-        <Setter Property="FontFamily" Value="{StaticResource dinproBold}"/>
+    <Style x:Key="titleCard" TargetType="TextBlock" BasedOn="{StaticResource TextDescription}">
         <Setter Property="Width" Value="408"/>
-        <Setter Property="FontWeight" Value="Regular" />
-        <Setter Property="TextWrapping" Value="Wrap" />
-        <Setter Property="FontSize" Value="28" />
+        <Setter Property="TextAlignment" Value="Left" />
         <Setter Property="Foreground" Value="White" />
     </Style>
 
@@ -49,13 +46,9 @@
         <Setter Property="Foreground" Value="White" />
     </Style>
 
-    <Style x:Key="selectedProjectTitle" TargetType="TextBlock">
-        <Setter Property="FontFamily" Value="{StaticResource dinproBold}"/>
+    <Style x:Key="selectedProjectTitle" TargetType="TextBlock" BasedOn="{StaticResource TextTitle}">
         <Setter Property="FontWeight" Value="Bold" />
-        <Setter Property="FontSize" Value="54" />
         <Setter Property="HorizontalAlignment" Value="Center" />
-        <Setter Property="TextWrapping" Value="Wrap" />
-        <Setter Property="TextAlignment" Value="Center" />
     </Style>
 
     <Style x:Key="PaymentMethodTitle1" TargetType="TextBlock" BasedOn="{StaticResource selectedProjectTitle}">
@@ -77,13 +70,9 @@
         <Setter Property="VerticalAlignment" Value="Center" />
     </Style>
 
-    <Style x:Key="descriptionPopup" TargetType="TextBlock">
-        <Setter Property="FontWeight" Value="Regular" />
+    <Style x:Key="descriptionPopup" TargetType="TextBlock" BasedOn="{StaticResource TextDescription}">
         <Setter Property="FontSize" Value="30" />
         <Setter Property="Width" Value="591" />
-        <Setter Property="TextWrapping" Value="Wrap" />
-        <Setter Property="TextAlignment" Value="Center" />
-        <Setter Property="FontFamily" Value="{StaticResource dinpro}" />
         <Setter Property="Margin" Value="0 24 0 0" />
     </Style>
 

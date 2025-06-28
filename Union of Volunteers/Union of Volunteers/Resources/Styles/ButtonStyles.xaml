@@ -139,10 +139,10 @@
                     <Grid>
                         <Ellipse Fill="{TemplateBinding Background}" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}"/>
                         <Path Stroke="White"
-                      StrokeThickness="4"
-                      StrokeStartLineCap="Round"
-                      StrokeEndLineCap="Round"
-                      Data="M20,15 L32,25 L20,35"/>
+                              StrokeThickness="4"
+                              StrokeStartLineCap="Round"
+                              StrokeEndLineCap="Round"
+                              Data="M20,15 L32,25 L20,35"/>
                     </Grid>
 
                 </ControlTemplate>
@@ -222,5 +222,4 @@
             </Setter.Value>
         </Setter>
     </Style>
-
 </ResourceDictionary>
