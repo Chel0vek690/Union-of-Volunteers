@@ -23,7 +23,7 @@
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
                     </ComboBox>
-                    <TextBlock Style="{StaticResource TextTitle}" Text="Укажите сумму пожертвования" Margin="0 54 0 0" />
+                    <TextBlock Style="{StaticResource selectedProjectTitle}" Text="Укажите сумму пожертвования" Margin="0 54 0 0" />
                     <StackPanel Orientation="Horizontal" Margin="0 42 0 0">
                         <RadioButton GroupName="Sum" Content="100 ₽" IsChecked="{Binding RadioButton100}" />
                         <RadioButton GroupName="Sum" Content="500 ₽" IsChecked="{Binding RadioButton500}" Margin="64 0 0 0"/>
