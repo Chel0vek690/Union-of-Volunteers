@@ -3,6 +3,7 @@
     <FontFamily x:Key="dinproBold" >pack://application,,,/Resources/Fonts/#dinpro_bold</FontFamily>
     <FontFamily x:Key="dinproMedium" >pack://application,,,/Resources/Fonts/#dinpro_medium</FontFamily>
     <FontFamily x:Key="dinpro" >pack://application,,,/Resources/Fonts/#dinpro</FontFamily>
+    <FontFamily x:Key="openSansSemiBold" >pack://application,,,/Resources/Fonts/#OpenSans-SemiBold</FontFamily>
     <Style TargetType="TextBlock" x:Key="BaseTextStyle">
         <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
         <Setter Property="TextWrapping" Value="Wrap"/>
@@ -18,6 +19,7 @@
 
     <Style x:Key="TextTitle" TargetType="TextBlock">
         <Setter Property="FontFamily" Value="{StaticResource dinproBold}"/>
+        <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="FontSize" Value="54" />
         <Setter Property="TextWrapping" Value="Wrap" />
         <Setter Property="TextAlignment" Value="Center" />
@@ -84,5 +86,13 @@
         <Setter Property="TextAlignment" Value="Center" />
         <Setter Property="FontFamily" Value="{StaticResource dinpro}" />
         <Setter Property="Margin" Value="0 24 0 0" />
+    </Style>
+
+    <Style x:Key="sumValue" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource dinpro}" />
+        <Setter Property="FontWeight" Value="Regular" />
+        <Setter Property="FontSize" Value="35" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Margin" Value="32" />
     </Style>
 </ResourceDictionary>

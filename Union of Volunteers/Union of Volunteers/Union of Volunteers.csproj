@@ -17,7 +17,9 @@
     <None Remove="Resources\Images\AboutOrganization3.png" />
     <None Remove="Resources\Images\AboutOrganization4.png" />
     <None Remove="Resources\Images\AboutOrganization5.png" />
+    <None Remove="Resources\Images\arrow.png" />
     <None Remove="Resources\Images\BackgroundAbout.png" />
+    <None Remove="Resources\Images\backgroundDonate.png" />
     <None Remove="Resources\Images\bg.png" />
     <None Remove="Resources\Images\CardMethodIcon.png" />
     <None Remove="Resources\Images\logo.png" />
@@ -66,7 +68,9 @@
     <Resource Include="Resources\Images\AboutOrganization3.png" />
     <Resource Include="Resources\Images\AboutOrganization4.png" />
     <Resource Include="Resources\Images\AboutOrganization5.png" />
+    <Resource Include="Resources\Images\arrow.png" />
     <Resource Include="Resources\Images\BackgroundAbout.png" />
+    <Resource Include="Resources\Images\backgroundDonate.png" />
     <Resource Include="Resources\Images\bg.png" />
     <Resource Include="Resources\Images\logo.png" />
     <Resource Include="Resources\Images\PaymentMentmethodIcon.png" />

@@ -7,43 +7,56 @@
              xmlns:pages="clr-namespace:Union_of_Volunteers.ViewModels.Pages" 
              d:DataContext="{d:DesignInstance Type=pages:DonationPageViewModel}"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="1080" d:DesignWidth="1920">
     <Grid>
-        <Button Content="Назад" Command="{Binding CancelButtonCommand}" Height="80" Width="212" />
-        <StackPanel>
-            <TextBlock Text="Выберите проект" />
-            <ComboBox Height="30" Width="500"  ItemsSource="{Binding Projects}" SelectedItem="{Binding SelectedProject}" >
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding title}" />
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
-                <TextBlock Text="Укажите сумму пожертвования" />
-            <StackPanel Orientation="Horizontal">
-                <RadioButton GroupName="Sum" Content="100 ₽" IsChecked="{Binding RadioButton100}" />
-                <RadioButton GroupName="Sum" Content="500 ₽" IsChecked="{Binding RadioButton500}" />
-                <RadioButton GroupName="Sum" Content="1000 ₽" IsChecked="{Binding RadioButton1000}" />
-                <RadioButton GroupName="Sum" Content="5000 ₽" IsChecked="{Binding RadioButton5000}"  />
+        <Image Style="{StaticResource logoRight}" />
+        <Image Source="/Resources/Images/backgroundDonate.png" VerticalAlignment="Bottom" />
+        <Button Content="Назад"  Style="{StaticResource CancelButton}" Command="{Binding CancelButtonCommand}" />
+        <Border Style="{StaticResource borderDonate}">
+            <StackPanel Orientation="Horizontal" Margin="50 80 0 0">
+                <StackPanel>
+                    <TextBlock Style="{StaticResource selectedProjectTitle}" Text="Выберите проект" HorizontalAlignment="Left" />
+                    <ComboBox Style="{StaticResource FlatComboBox}" ItemsSource="{Binding Projects}" SelectedItem="{Binding SelectedProject}" Margin="0 42 0 0">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding title}" />
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <TextBlock Style="{StaticResource TextTitle}" Text="Укажите сумму пожертвования" Margin="0 54 0 0" />
+                    <StackPanel Orientation="Horizontal" Margin="0 42 0 0">
+                        <RadioButton GroupName="Sum" Content="100 ₽" IsChecked="{Binding RadioButton100}" />
+                        <RadioButton GroupName="Sum" Content="500 ₽" IsChecked="{Binding RadioButton500}" Margin="64 0 0 0"/>
+                        <RadioButton GroupName="Sum" Content="1000 ₽" IsChecked="{Binding RadioButton1000}" Margin="64 0 0 0"/>
+                        <RadioButton GroupName="Sum" Content="5000 ₽" IsChecked="{Binding RadioButton5000}" Margin="64 0 0 0" />
+                    </StackPanel>
+                    <Border Style="{StaticResource sumBorder}">
+                        <TextBlock Style="{StaticResource sumValue}" Text="{Binding OwnAmount}" />
+                    </Border>
+                </StackPanel>
+                <StackPanel Style="{StaticResource numPad}">
+                    <StackPanel.Clip>
+                        <RectangleGeometry Rect="0,0,340,440" RadiusX="20" RadiusY="20"/>
+                    </StackPanel.Clip>
+                    <WrapPanel Width="294" >
+                        <Button Style="{StaticResource nums}" Content="1" Command="{Binding Number1Command}" Margin="0 21 0 0" />
+                        <Button Style="{StaticResource nums}" Content="2" Command="{Binding Number2Command}" Margin="14 21 0 0" />
+                        <Button Style="{StaticResource nums}" Content="3" Command="{Binding Number3Command}" Margin="14 21 0 0" />
+                        <Button Style="{StaticResource nums}" Content="4" Command="{Binding Number4Command}" Margin="0 14 0 0" />
+                        <Button Style="{StaticResource nums}" Content="5" Command="{Binding Number5Command}" Margin="14 14 0 0"/>
+                        <Button Style="{StaticResource nums}" Content="6" Command="{Binding Number6Command}" Margin="14 14 0 0"/>
+                        <Button Style="{StaticResource nums}" Content="7" Command="{Binding Number7Command}" Margin="0 14 0 0"/>
+                        <Button Style="{StaticResource nums}" Content="8" Command="{Binding Number8Command}" Margin="14 14 0 0"/>
+                        <Button Style="{StaticResource nums}" Content="9" Command="{Binding Number9Command}" Margin="14 14 0 0"/>
+                        <Button Style="{StaticResource nums}" Content="0" Command="{Binding Number0Command}" Margin="0 14 0 0"/>
+                        <Button Style="{StaticResource nums}" Content="Cancel" Command="{Binding ButtonBackspaceCommand}" Width="191" Margin="14 14 0 0" />
+                    </WrapPanel>
+                </StackPanel>
             </StackPanel>
-            <TextBlock Text="{Binding OwnAmount}" />
-            <WrapPanel Width="294" Height="397">
-                <Button Content="1" Height="88" Width="88" Command="{Binding Number1Command}" />
-                <Button Content="2" Height="88" Width="88" Command="{Binding Number2Command}" />
-                <Button Content="3" Height="88" Width="88" Command="{Binding Number3Command}" />
-                <Button Content="4" Height="88" Width="88" Command="{Binding Number4Command}" />
-                <Button Content="5" Height="88" Width="88" Command="{Binding Number5Command}" />
-                <Button Content="6" Height="88" Width="88" Command="{Binding Number6Command}" />
-                <Button Content="7" Height="88" Width="88" Command="{Binding Number7Command}" />
-                <Button Content="8" Height="88" Width="88" Command="{Binding Number8Command}" />
-                <Button Content="9" Height="88" Width="88" Command="{Binding Number9Command}" />
-                <Button Content="0" Height="88" Width="88" Command="{Binding Number0Command}" />
-                <Button Content="Cancel" Height="88" Width="191" Command="{Binding ButtonBackspaceCommand}" />
-            </WrapPanel>
-            <StackPanel Orientation="Horizontal">
-                <Button Content="Отмена" Command="{Binding CancelButtonCommand}" Width="388" Height="120" />
-                <Button Content="Пожертвовать" Command="{Binding GoToPaymentMethodCommand}" Width="388" Height="120" />
-            </StackPanel>
+        </Border>
+        <StackPanel Style="{StaticResource buttonsDonate}">
+            <Button Style="{StaticResource returnButton}" Content="Отмена" Command="{Binding CancelButtonCommand}"/>
+            <Button Style="{StaticResource RedButtonsDonate}" Content="Пожертвовать" Command="{Binding GoToPaymentMethodCommand}" />
         </StackPanel>
     </Grid>
 </UserControl>

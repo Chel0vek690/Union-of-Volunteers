@@ -25,7 +25,16 @@
         <Setter Property="Background" Value="#4D9E93" />
     </Style>
 
-    
+    <Style x:Key="borderDonate" TargetType="Border">
+        <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="BorderBrush" Value="#33877C" />
+        <Setter Property="Margin" Value="0 212 0 0" />
+        <Setter Property="CornerRadius" Value="24" />
+        <Setter Property="Background" Value="White" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="Width" Value="1760" />
+        <Setter Property="Height" Value="831" />
+    </Style>
 
     <Style x:Key="paymentMentmethodButttons" TargetType="StackPanel">
         <Setter Property="Margin" Value="128 0 0 0" />
@@ -140,8 +149,231 @@
         </Setter>
     </Style>
 
+    <Style TargetType="RadioButton">
+        <Setter Property="FontSize" Value="30"/>
+        <Setter Property="FontFamily" Value="{StaticResource dinpro}"/>
+        <Setter Property="FontWeight" Value="Regular" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RadioButton">
+                    <BulletDecorator Background="Transparent">
+                        <BulletDecorator.Bullet>
+                            <Grid Width="49" Height="49">
+                                <Ellipse x:Name="OuterCircle"
+                                     StrokeThickness="2"
+                                     Stroke="#FFE31E24"
+                                     Fill="White"/>
+                                <Ellipse x:Name="InnerDot"
+                                     Width="22" Height="22"
+                                     Fill="#FFE31E24"
+                                     Visibility="Collapsed"/>
+                            </Grid>
+                        </BulletDecorator.Bullet>
+                        <TextBlock Text="{TemplateBinding Content}"
+                               VerticalAlignment="Center"
+                               Margin="8,0,0,0"
+                               FontWeight="SemiBold"/>
+                    </BulletDecorator>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="InnerDot" Property="Visibility" Value="Visible"/>
+                            <Setter TargetName="OuterCircle" Property="Stroke" Value="#FFDD2C2C"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="False">
+                            <Setter TargetName="InnerDot" Property="Visibility" Value="Collapsed"/>
+                            <Setter TargetName="OuterCircle" Property="Stroke" Value="#FF333333"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="OuterCircle" Property="Stroke" Value="#FFD3D3D3"/>
+                            <Setter Property="Foreground" Value="#FFD3D3D3"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 
 
+    <Style TargetType="ScrollBar" x:Key="FlatScrollBar">
+        <Setter Property="Width" Value="6"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ScrollBar">
+                    <Grid Background="{TemplateBinding Background}">
+                        <Track Name="PART_Track" IsDirectionReversed="true">
+                            <Track.Thumb>
+                                <Thumb Background="#222"/>
+                            </Track.Thumb>
+                        </Track>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="ComboBoxItem" x:Key="FlatComboBoxItem">
+        <Setter Property="FontFamily" Value="Inter"/>
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="FontSize" Value="35"/>
+        <Setter Property="Padding" Value="8,4"/>
+        <Setter Property="Foreground" Value="#222"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Width" Value="721" />
+        <Setter Property="Margin" Value="32 0 32 24" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ComboBoxItem">
+                    <Border x:Name="Bd" Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="FontWeight" Value="Bold"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="#AAA"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="toogleButton" TargetType="ToggleButton">
+        <Setter Property="IsChecked" Value="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ToggleButton">
+                    <Border x:Name="border"  Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="Transparent" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ScrollViewer2" BasedOn="{StaticResource ScrollViewer}">
+        <Setter Property="ScrollViewer.Height" Value="100"/>
+        <Setter Property="ScrollViewer.Width" Value="867"/>
+        <Setter Property="ScrollViewer.Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ScrollViewer">
+                    <Border CornerRadius="20"
+                        Background="White"
+                        SnapsToDevicePixels="True">
+                        <Grid Height="400">
+                        <ScrollContentPresenter />
+                        <ScrollBar x:Name="PART_VerticalScrollBar"
+           Orientation="Vertical"
+           Style="{StaticResource NiceScrollBar}"
+           Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
+           Maximum="{TemplateBinding ScrollableHeight}"
+           Value="{TemplateBinding VerticalOffset}"
+           ViewportSize="{TemplateBinding ViewportHeight}"
+           Margin="700 0 0 0" />
+                    </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="ComboBox" x:Key="FlatComboBox">
+        <Setter Property="Height" Value="107" />
+        <Setter Property="Width" Value="803" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="FontFamily" Value="Inter"/>
+        <Setter Property="FontSize" Value="35"/>
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="BorderBrush" Value="#D0D0D0"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Padding" Value="12,8"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ComboBox">
+                    <Grid>
+                        <Border x:Name="Border"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="30"
+                                SnapsToDevicePixels="True"/>
+                        <ContentPresenter x:Name="ContentSite"
+                                          Margin="12,0,32,0"
+                                          VerticalAlignment="Center"
+                                          HorizontalAlignment="Left"
+                                          Content="{TemplateBinding SelectionBoxItem}"
+                                          ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"/>
+                        <ToggleButton Grid.Column="1"  
+                                      Focusable="False" 
+                                      ClickMode="Press"
+                                      Background="Transparent"
+                                      BorderThickness="0"
+                                      HorizontalAlignment="Right"
+                                      Width="803" Style="{StaticResource toogleButton}">
+                            <Image Source="/Resources/Images/arrow.png" Height="14" Width="34" Margin="700 0 0 0" />
+                        </ToggleButton>
+                        <Popup x:Name="PART_Popup"
+                               Placement="Bottom"
+                               IsOpen="{TemplateBinding IsDropDownOpen}"
+                               AllowsTransparency="True"
+                               Focusable="False"
+                               PopupAnimation="Slide">
+                            <Border x:Name="DropDownBorder"
+                                    Background="White"
+                                    BorderBrush="#D0D0D0"
+                                    BorderThickness="1"
+                                    CornerRadius="20"
+                                    Margin="0,26,0,0">
+                                <ScrollViewer VerticalScrollBarVisibility="Auto"
+                                              HorizontalScrollBarVisibility="Disabled" Style="{StaticResource ScrollViewer2}" Height="445" Width="803 ">
+                                    <ItemsPresenter/>
+                                </ScrollViewer>
+                            </Border>
+                        </Popup>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="ItemContainerStyle" Value="{StaticResource FlatComboBoxItem}"/>
+    </Style>
+
+    <Style x:Key="sumBorder" TargetType="Border">
+        <Setter Property="BorderBrush" Value="#707070" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Width" Value="803" />
+        <Setter Property="Height" Value="107" />
+        <Setter Property="CornerRadius" Value="20" />
+        <Setter Property="Margin" Value="0 42 0 0" />
+    </Style>
+
+    <Style x:Key="buttonsDonate" TargetType="StackPanel">
+        <Setter Property="Width" Value="803" />
+        <Setter Property="Height" Value="120" />
+        <Setter Property="Orientation" Value="Horizontal" />
+        <Setter Property="VerticalAlignment" Value="Bottom" />
+        <Setter Property="HorizontalAlignment" Value="Right" />
+        <Setter Property="Margin" Value="0 0 130 117" />
+    </Style>
+
+    <Style x:Key="numPad" TargetType="StackPanel">
+        <Setter Property="Margin" Value="285 0 0 0" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="Orientation" Value="Vertical" />
+        <Setter Property="Width" Value="340" />
+        <Setter Property="Height" Value="440" />
+        <Setter Property="Background" Value="#DBDBDD" />
+    </Style>
 
 
 </ResourceDictionary>
