@@ -165,11 +165,12 @@
                 <ControlTemplate TargetType="Button">
                     <Grid>
                         <Ellipse Fill="{TemplateBinding Background}" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}"/>
-                        <Path Stroke="White"
-              StrokeThickness="4"
-              StrokeStartLineCap="Round"
-              StrokeEndLineCap="Round"
-              Data="M20,15 L32,25 L20,35">
+                        <Path 
+                            Stroke="White"
+                            StrokeThickness="4"
+                            StrokeStartLineCap="Round"
+                            StrokeEndLineCap="Round"
+                            Data="M20,15 L32,25 L20,35">
                             <Path.RenderTransform>
                                 <ScaleTransform ScaleX="-1" ScaleY="-1" CenterX="25" CenterY="25"/>
                             </Path.RenderTransform>

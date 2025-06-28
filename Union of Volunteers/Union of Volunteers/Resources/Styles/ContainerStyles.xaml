@@ -89,10 +89,17 @@
                                 </RepeatButton>
                             </Track.DecreaseRepeatButton>
                             <Track.IncreaseRepeatButton>
-                                <RepeatButton Margin="0 -10 0 0" IsHitTestVisible="False" BorderThickness="0" VerticalAlignment="Stretch" Command="ScrollBar.LineDownCommand" Background="Transparent">
+                                <RepeatButton Margin="0 -10 0 0" 
+                                              IsHitTestVisible="False" 
+                                              BorderThickness="0" 
+                                              VerticalAlignment="Stretch" 
+                                              Command="ScrollBar.LineDownCommand" 
+                                              Background="Transparent">
                                     <RepeatButton.Template>
                                         <ControlTemplate>
-                                            <Rectangle Fill="#E9E9E9" RadiusX="11" RadiusY="11"  />
+                                            <Rectangle Fill="#E9E9E9" 
+                                                       RadiusX="11" 
+                                                       RadiusY="11"  />
                                         </ControlTemplate>
                                     </RepeatButton.Template>
                                 </RepeatButton>
@@ -122,13 +129,13 @@
                     <Grid>
                         <ScrollContentPresenter />
                         <ScrollBar x:Name="PART_VerticalScrollBar"
-                   Orientation="Vertical"
-                   Style="{StaticResource NiceScrollBar}"
-                   Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
-                   Maximum="{TemplateBinding ScrollableHeight}"
-                   Value="{TemplateBinding VerticalOffset}"
-                   ViewportSize="{TemplateBinding ViewportHeight}"
-                   Margin="1400 ,4,0,0" />
+                                   Orientation="Vertical"
+                                   Style="{StaticResource NiceScrollBar}"
+                                   Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
+                                   Maximum="{TemplateBinding ScrollableHeight}"
+                                   Value="{TemplateBinding VerticalOffset}"
+                                   ViewportSize="{TemplateBinding ViewportHeight}"
+                                   Margin="1400 ,4,0,0" />
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
@@ -144,13 +151,13 @@
                     <Grid>
                         <ScrollContentPresenter />
                         <ScrollBar x:Name="PART_VerticalScrollBar"
-               Orientation="Vertical"
-               Style="{StaticResource NiceScrollBar}"
-               Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
-               Maximum="{TemplateBinding ScrollableHeight}"
-               Value="{TemplateBinding VerticalOffset}"
-               ViewportSize="{TemplateBinding ViewportHeight}"
-               Margin="850,4,0,0" />
+                                   Orientation="Vertical"
+                                   Style="{StaticResource NiceScrollBar}"
+                                   Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
+                                   Maximum="{TemplateBinding ScrollableHeight}"
+                                   Value="{TemplateBinding VerticalOffset}"
+                                   ViewportSize="{TemplateBinding ViewportHeight}"
+                                   Margin="850,4,0,0" />
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
@@ -168,19 +175,19 @@
                         <BulletDecorator.Bullet>
                             <Grid Width="49" Height="49">
                                 <Ellipse x:Name="OuterCircle"
-                                     StrokeThickness="2"
-                                     Stroke="#FFE31E24"
-                                     Fill="White"/>
+                                         StrokeThickness="2"
+                                         Stroke="#FFE31E24"
+                                         Fill="White"/>
                                 <Ellipse x:Name="InnerDot"
-                                     Width="22" Height="22"
-                                     Fill="#FFE31E24"
-                                     Visibility="Collapsed"/>
+                                         Width="22" Height="22"
+                                         Fill="#FFE31E24"
+                                         Visibility="Collapsed"/>
                             </Grid>
                         </BulletDecorator.Bullet>
                         <TextBlock Text="{TemplateBinding Content}"
-                               VerticalAlignment="Center"
-                               Margin="8,0,0,0"
-                               FontWeight="SemiBold"/>
+                                   VerticalAlignment="Center"
+                                   Margin="8,0,0,0"
+                                   FontWeight="SemiBold"/>
                     </BulletDecorator>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsChecked" Value="True">
@@ -278,13 +285,13 @@
                         <Grid Height="400">
                         <ScrollContentPresenter />
                         <ScrollBar x:Name="PART_VerticalScrollBar"
-           Orientation="Vertical"
-           Style="{StaticResource NiceScrollBar}"
-           Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
-           Maximum="{TemplateBinding ScrollableHeight}"
-           Value="{TemplateBinding VerticalOffset}"
-           ViewportSize="{TemplateBinding ViewportHeight}"
-           Margin="700 0 0 0" />
+                                     Orientation="Vertical"
+                                     Style="{StaticResource NiceScrollBar}"
+                                     Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
+                                     Maximum="{TemplateBinding ScrollableHeight}"
+                                     Value="{TemplateBinding VerticalOffset}"
+                                     ViewportSize="{TemplateBinding ViewportHeight}"
+                                     Margin="700 0 0 0" />
                     </Grid>
                     </Border>
                 </ControlTemplate>
@@ -344,7 +351,10 @@
                                     BorderThickness="1"
                                     CornerRadius="20">
                                 <ScrollViewer VerticalScrollBarVisibility="Auto"
-                                              HorizontalScrollBarVisibility="Disabled" Style="{StaticResource ScrollViewer2}" Height="445" Width="803 ">
+                                              HorizontalScrollBarVisibility="Disabled" 
+                                              Style="{StaticResource ScrollViewer2}" 
+                                              Height="445" 
+                                              Width="803 ">
                                     <ItemsPresenter/>
                                 </ScrollViewer>
                             </Border>
