@@ -33,6 +33,7 @@
                     <Border Style="{StaticResource sumBorder}">
                         <TextBlock Style="{StaticResource sumValue}" Text="{Binding OwnAmount}" />
                     </Border>
+                    <TextBlock Style="{StaticResource min10}" Text="Минимальная сумма пожертвования 10 ₽" />
                 </StackPanel>
                 <StackPanel Style="{StaticResource numPad}">
                     <StackPanel.Clip>

@@ -257,9 +257,14 @@ namespace Union_of_Volunteers.ViewModels.Pages
         {
             if(selectedProject.title != "Без проекта")
             {
-                if (OwnAmount != "Своя сумма")
-                {
-                    _navigationHelper.Project = new string[] { SelectedProject.title, OwnAmount };
+                if (OwnAmount != "Своя сумма" )
+                { 
+                    if(Convert.ToInt32(OwnAmount) > 9)
+                    {
+                        _navigationHelper.Project = new string[] { SelectedProject.title, OwnAmount };
+                        _paymentMethodService.Navigate();
+                    }
+                    
                 }
                 else
                 {
@@ -267,8 +272,8 @@ namespace Union_of_Volunteers.ViewModels.Pages
                     else if (_radioButton1000) _navigationHelper.Project = new string[] { SelectedProject.title, "1000" };
                     else if (_radioButton500) _navigationHelper.Project = new string[] { SelectedProject.title, "500" };
                     else if (_radioButton100) _navigationHelper.Project = new string[] { SelectedProject.title, "100" };
+                    _paymentMethodService.Navigate();
                 }
-                _paymentMethodService.Navigate();
             }
             
         }
