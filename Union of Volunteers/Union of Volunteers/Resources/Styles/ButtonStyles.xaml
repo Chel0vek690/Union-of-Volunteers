@@ -41,6 +41,25 @@
         </Setter>
     </Style>
 
+    <Style x:Key="greenButton" TargetType="Button" BasedOn="{StaticResource RedButtons}">
+        <Setter Property="Background" Value="#51D169" />
+        <Setter Property="Width" Value="762" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="border" Background="{TemplateBinding Background}" CornerRadius="16">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="#24B03E" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style> 
+
     <Style x:Key="BlueButtons" TargetType="Button">
         <Setter Property="Background" Value="#2683F1" />
         <Setter Property="Height" Value="120" />

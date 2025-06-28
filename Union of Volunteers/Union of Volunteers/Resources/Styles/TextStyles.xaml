@@ -53,6 +53,8 @@
         <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="FontSize" Value="54" />
         <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="TextWrapping" Value="Wrap" />
+        <Setter Property="TextAlignment" Value="Center" />
     </Style>
 
     <Style x:Key="PaymentMethodTitle1" TargetType="TextBlock" BasedOn="{StaticResource selectedProjectTitle}">

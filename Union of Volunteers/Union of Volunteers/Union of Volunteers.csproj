@@ -25,6 +25,7 @@
     <None Remove="Resources\Images\projectsBacground.png" />
     <None Remove="Resources\Images\QrMethodIcon.png" />
     <None Remove="Resources\Images\Spinner.png" />
+    <None Remove="Resources\Images\Successfully.png" />
     <None Remove="Resources\Images\what_are_we_doing.png" />
     <None Remove="Resources\Images\who_are_we.png" />
   </ItemGroup>
@@ -72,6 +73,7 @@
     <Resource Include="Resources\Images\projectsBacground.png" />
     <Resource Include="Resources\Images\QrMethodIcon.png" />
     <Resource Include="Resources\Images\Spinner.png" />
+    <Resource Include="Resources\Images\Successfully.png" />
     <Resource Include="Resources\Images\what_are_we_doing.png" />
     <Resource Include="Resources\Images\who_are_we.png" />
   </ItemGroup>

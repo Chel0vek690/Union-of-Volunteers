@@ -7,13 +7,16 @@
              xmlns:popups="clr-namespace:Union_of_Volunteers.ViewModels.Popups" 
              d:DataContext="{d:DesignInstance Type=popups:DonationSentSuccessfullyPopupViewModel}"
              mc:Ignorable="d" 
-             d:DesignHeight="1080" d:DesignWidth="1920">
+             d:DesignHeight="729" d:DesignWidth="920">
     <Grid Width="920" Height="729" Background="White">
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Image />
-            <TextBlock Text="Пожертвование успешно отправлено" />
-            <TextBlock Text="Спасибо за ваше участие!" />
-            <Button Content="Закрыть" Command="{Binding ExitPopupCommand}" Width="762" Height="120" />
+        <Grid.Clip>
+            <RectangleGeometry Rect="0,0,920,729" RadiusX="30" RadiusY="30"/>
+        </Grid.Clip>
+        <StackPanel HorizontalAlignment="Center">
+            <Image Style="{StaticResource popupImage}"  Source="/Resources/Images/Successfully.png" />
+            <TextBlock Style="{StaticResource selectedProjectTitle}" Text="Пожертвование успешно отправлено" Margin="0 64 0 0" />
+            <TextBlock Style="{StaticResource descriptionPopup}" Text="Спасибо за ваше участие!" />
+            <Button Style="{StaticResource greenButton}" Content="Закрыть" Command="{Binding ExitPopupCommand}" Margin="0 64 0 0" />
         </StackPanel>
             
     </Grid>
