@@ -16,7 +16,7 @@
             <StackPanel Style="{StaticResource paymentMentmethodButttons}">
                 <Image Style="{StaticResource popupImage}" Source="/Resources/Images/QrMethodIcon.png" />
                 <TextBlock Style="{StaticResource PaymentMethodTitle1}" Text="Отсканируйте QR-код на терминале" Width="470" />
-                <TextBlock Style="{StaticResource descriptionPopup}" Text="Пожалуйста, отсканируйте QR код для завершения пожертвования" Margin="0 24 0 0" />
+                <TextBlock Style="{StaticResource descriptionPopup}" Text="Пожалуйста, отсканируйте QR код для завершения пожертвования" />
             </StackPanel>
             <StackPanel Style="{StaticResource rightContainerPopup}">
                 <Grid Style="{StaticResource backgroundSum}" Margin="0 0 0 94">

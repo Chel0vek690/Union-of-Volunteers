@@ -81,6 +81,6 @@
         <Setter Property="TextWrapping" Value="Wrap" />
         <Setter Property="TextAlignment" Value="Center" />
         <Setter Property="FontFamily" Value="{StaticResource dinpro}" />
-
+        <Setter Property="Margin" Value="0 24 0 0" />
     </Style>
 </ResourceDictionary>
