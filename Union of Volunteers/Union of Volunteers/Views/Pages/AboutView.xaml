@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Union_of_Volunteers.Views.Pages" xmlns:pages="clr-namespace:Union_of_Volunteers.ViewModels.Pages" d:DataContext="{d:DesignInstance Type=pages:AboutPageViewModel}"
+             xmlns:local="clr-namespace:Union_of_Volunteers.Views.Pages" 
+             xmlns:pages="clr-namespace:Union_of_Volunteers.ViewModels.Pages" 
+             d:DataContext="{d:DesignInstance Type=pages:AboutPageViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
@@ -14,8 +16,8 @@
         <Image Style="{StaticResource dataAbout}" Source="{Binding CurrentSlide.Image}" />
 
         <StackPanel Style="{StaticResource RoundButtonsContainer}">
-            <Button Style="{StaticResource RoundButtonLeft}" Command="{Binding PrevSlideCommand}" />
-            <Button Style="{StaticResource RoundButtonRight}" Command="{Binding NextSlideCommand}" />
+            <Button Style="{StaticResource RoundButtonLeft}" Background="{Binding BackgroundButtonLeft}" Command="{Binding PrevSlideCommand}" />
+            <Button Style="{StaticResource RoundButtonRight}" Background="{Binding BackgroundButtonRight}" Command="{Binding NextSlideCommand}" />
         </StackPanel>
         
     </Grid>
