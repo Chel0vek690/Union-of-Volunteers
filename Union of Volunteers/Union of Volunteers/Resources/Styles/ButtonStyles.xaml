@@ -119,14 +119,21 @@
         </Setter>
     </Style>
 
+    <Style x:Key="PaymentMethodsRedButton" TargetType="Button" BasedOn="{StaticResource RedButtons}">
+        <Setter Property="Width" Value="762" />
+    </Style>
+    <Style x:Key="PaymentMethodsCancelButton" TargetType="Button" BasedOn="{StaticResource CancelButton}">
+        <Setter Property="Width" Value="762" />
+        <Setter Property="Height" Value="120" />
+        <Setter Property="FontSize" Value="40" />
+    </Style>
+
     <Style x:Key="RoundButtonLeft" TargetType="Button" BasedOn="{StaticResource RoundButton}">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Grid>
-                        <!-- Круглая основа -->
                         <Ellipse Fill="{TemplateBinding Background}" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}"/>
-                        <!-- Белая стрелка вправо -->
                         <Path Stroke="White"
               StrokeThickness="4"
               StrokeStartLineCap="Round"

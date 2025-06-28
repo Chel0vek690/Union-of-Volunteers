@@ -50,7 +50,22 @@
 
     <Style x:Key="selectedProjectTitle" TargetType="TextBlock">
         <Setter Property="FontFamily" Value="{StaticResource dinproBold}"/>
+        <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="FontSize" Value="54" />
         <Setter Property="HorizontalAlignment" Value="Center" />
+    </Style>
+
+    <Style x:Key="PaymentMethodTitle1" TargetType="TextBlock" BasedOn="{StaticResource selectedProjectTitle}">
+        <Setter Property="Width" Value="631" />
+        <Setter Property="TextWrapping" Value="Wrap" />
+        <Setter Property="TextAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="54" />
+        <Setter Property="Margin" Value="0 64 0 0" />
+    </Style>
+
+    <Style x:Key="PaymentMethodSum" TargetType="TextBlock" BasedOn="{StaticResource selectedProjectTitle}">
+        <Setter Property="TextAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="54" />
+        <Setter Property="Margin" Value="0 64 0 0" />
     </Style>
 </ResourceDictionary>

@@ -58,4 +58,16 @@
         <Setter Property="VerticalAlignment" Value="Bottom" />
     </Style>
 
+    <Style x:Key="popupImage" TargetType="Image">
+        <Setter Property="Height" Value="175" />
+        <Setter Property="Width" Value="175" />
+        <Setter Property="Margin" Value="0 64 0 0" />
+    </Style>
+
+    <Style x:Key="paymentMethodPopup" TargetType="Grid">
+        <Setter Property="Background" Value="White" />
+        <Setter Property="Height" Value="684" />
+        <Setter Property="Width" Value="1755" />
+    </Style> 
+
 </ResourceDictionary>
