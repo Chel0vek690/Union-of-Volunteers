@@ -25,6 +25,39 @@
         <Setter Property="Background" Value="#4D9E93" />
     </Style>
 
+    
+
+    <Style x:Key="paymentMentmethodButttons" TargetType="StackPanel">
+        <Setter Property="Margin" Value="128 0 0 0" />
+    </Style>
+
+    <Style x:Key="paymentMethodPopup" TargetType="Grid">
+        <Setter Property="Background" Value="White" />
+        <Setter Property="Height" Value="684" />
+        <Setter Property="Width" Value="1755" />
+    </Style>
+
+    <Style x:Key="CradMethodPopup" TargetType="Grid" BasedOn="{StaticResource paymentMethodPopup}">
+        <Setter Property="Height" Value="506" />
+        <Setter Property="Width" Value="1715" />
+    </Style>
+
+    <Style x:Key="qrMethodPopup" TargetType="Grid" BasedOn="{StaticResource paymentMethodPopup}">
+        <Setter Property="Height" Value="640" />
+        <Setter Property="Width" Value="1594" />
+    </Style>
+
+    <Style x:Key="rightContainerPopup" TargetType="StackPanel">
+        <Setter Property="Orientation" Value="Vertical" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+
+    <Style x:Key="backgroundSum" TargetType="Grid">
+        <Setter Property="Background" Value="#F3F4F8" />
+        <Setter Property="Width" Value="631" />
+        <Setter Property="Height" Value="135" />
+    </Style>
+
     <Style x:Key="NiceScrollBar" TargetType="ScrollBar">
         <Setter Property="Template">
             <Setter.Value>
@@ -55,32 +88,6 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-    </Style>
-
-    <Style x:Key="paymentMentmethodButttons" TargetType="StackPanel">
-        <Setter Property="Margin" Value="128 0 0 0" />
-    </Style>
-
-    <Style x:Key="paymentMethodPopup" TargetType="Grid">
-        <Setter Property="Background" Value="White" />
-        <Setter Property="Height" Value="684" />
-        <Setter Property="Width" Value="1755" />
-    </Style>
-
-    <Style x:Key="CradMethodPopup" TargetType="Grid" BasedOn="{StaticResource paymentMethodPopup}">
-        <Setter Property="Height" Value="506" />
-        <Setter Property="Width" Value="1715" />
-    </Style>
-
-    <Style x:Key="rightContainerPopup" TargetType="StackPanel">
-        <Setter Property="Orientation" Value="Vertical" />
-        <Setter Property="VerticalAlignment" Value="Center" />
-    </Style>
-
-    <Style x:Key="backgroundSum" TargetType="Grid">
-        <Setter Property="Background" Value="#F3F4F8" />
-        <Setter Property="Width" Value="631" />
-        <Setter Property="Height" Value="135" />
     </Style>
 
     <Style x:Key="ScrollViewer">
