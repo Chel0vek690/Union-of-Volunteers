@@ -58,6 +58,12 @@
         <Setter Property="Height" Value="135" />
     </Style>
 
+    <Style x:Key="donationProcessingPopup" TargetType="Grid">
+        <Setter Property="Height" Value="486" />
+        <Setter Property="Width" Value="920" />
+        <Setter Property="Background" Value="White" />
+    </Style>
+
     <Style x:Key="NiceScrollBar" TargetType="ScrollBar">
         <Setter Property="Template">
             <Setter.Value>
