@@ -5,10 +5,15 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Union_of_Volunteers.Views.Pages" 
              xmlns:pages="clr-namespace:Union_of_Volunteers.ViewModels.Pages" 
+             xmlns:converter="clr-namespace:Union_of_Volunteers.Converters" 
              xmlns:interface="clr-namespace:Union_of_Volunteers.Models.Interfaces" 
              d:DataContext="{d:DesignInstance Type=pages:ProjectsPageViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="1080" d:DesignWidth="1920">
+    <UserControl.Resources>
+        <converter:BackgroundColorConverter x:Key="BackgroundColorConverter"/>
+        <converter:BorderColorConverter x:Key="BorderColorConverter"/>
+    </UserControl.Resources>
     <Grid>
         <Image Style="{StaticResource logoRight}" />
         <Image Style="{StaticResource projectsBackground}" />
@@ -22,7 +27,7 @@
                 </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate DataType="{x:Type interface:Api}" >
-                        <Border Style="{StaticResource BorderCard}" >
+                        <Border Style="{StaticResource BorderCard}" Background="{Binding Converter={StaticResource BackgroundColorConverter}}" BorderBrush="{Binding Converter={StaticResource BorderColorConverter}}" >
                             <Button Style="{StaticResource projectCard}" Command="{Binding DataContext.SelectProjectCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}" CommandParameter="{Binding}"/>
                         </Border>
                     </DataTemplate>

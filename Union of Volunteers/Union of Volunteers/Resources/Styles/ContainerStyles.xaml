@@ -77,15 +77,26 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ScrollBar">
-                    <Grid Background="#E9E9E9" Width="14">
+                    <Grid Background="Transparent" Width="14">
                         <Track Name="PART_Track" IsDirectionReversed="true" Width="14">
                             <Track.DecreaseRepeatButton>
-                                <RepeatButton  IsHitTestVisible="False" BorderThickness="0" Command="ScrollBar.LineUpCommand" VerticalAlignment="Stretch" Background="Transparent">
-                                    <RepeatButton.Clip >
-                                        <RectangleGeometry Rect="0 0 1430 14" RadiusX="11" RadiusY="11"  />
-                                    </RepeatButton.Clip>
+                                <RepeatButton Margin="0 0 0 -10" IsHitTestVisible="False" BorderThickness="0" Command="ScrollBar.LineUpCommand" VerticalAlignment="Stretch" Background="Transparent">
+                                    <RepeatButton.Template>
+                                        <ControlTemplate>
+                                            <Rectangle Fill="#E9E9E9" RadiusX="11" RadiusY="11"  />
+                                        </ControlTemplate>
+                                    </RepeatButton.Template>
                                 </RepeatButton>
                             </Track.DecreaseRepeatButton>
+                            <Track.IncreaseRepeatButton>
+                                <RepeatButton Margin="0 -10 0 0" IsHitTestVisible="False" BorderThickness="0" VerticalAlignment="Stretch" Command="ScrollBar.LineDownCommand" Background="Transparent">
+                                    <RepeatButton.Template>
+                                        <ControlTemplate>
+                                            <Rectangle Fill="#E9E9E9" RadiusX="11" RadiusY="11"  />
+                                        </ControlTemplate>
+                                    </RepeatButton.Template>
+                                </RepeatButton>
+                            </Track.IncreaseRepeatButton>
                             <Track.Thumb>
                                 <Thumb Width="14">
                                     <Thumb.Template>
@@ -95,9 +106,6 @@
                                     </Thumb.Template>
                                 </Thumb>
                             </Track.Thumb>
-                            <Track.IncreaseRepeatButton>
-                                <RepeatButton IsHitTestVisible="False" BorderThickness="0" VerticalAlignment="Stretch" Command="ScrollBar.LineDownCommand" Background="Transparent"/>
-                            </Track.IncreaseRepeatButton>
                         </Track>
                     </Grid>
                 </ControlTemplate>
@@ -321,20 +329,20 @@
                                       BorderThickness="0"
                                       HorizontalAlignment="Right"
                                       Width="803" Style="{StaticResource toogleButton}">
-                            <Image Source="/Resources/Images/arrow.png" Height="14" Width="34" Margin="700 0 0 0" />
+                            <Image Source="/Resources/Images/arrow.png" x:Name="Image" Height="14" Width="34" Margin="700 0 0 0" />
                         </ToggleButton>
                         <Popup x:Name="PART_Popup"
                                Placement="Bottom"
                                IsOpen="{TemplateBinding IsDropDownOpen}"
                                AllowsTransparency="True"
+                               VerticalOffset="26"
                                Focusable="False"
                                PopupAnimation="Slide">
                             <Border x:Name="DropDownBorder"
                                     Background="White"
                                     BorderBrush="#D0D0D0"
                                     BorderThickness="1"
-                                    CornerRadius="20"
-                                    Margin="0,26,0,0">
+                                    CornerRadius="20">
                                 <ScrollViewer VerticalScrollBarVisibility="Auto"
                                               HorizontalScrollBarVisibility="Disabled" Style="{StaticResource ScrollViewer2}" Height="445" Width="803 ">
                                     <ItemsPresenter/>
@@ -342,6 +350,11 @@
                             </Border>
                         </Popup>
                     </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsDropDownOpen" Value="True">
+                            <Setter TargetName="Image" Property="Source" Value="/Resources/Images/arrow1.png" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
