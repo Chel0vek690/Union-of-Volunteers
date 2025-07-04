@@ -15,16 +15,20 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.Windows.Markup;
 using Union_of_Volunteers.Models;
 using static System.Net.WebRequestMethods;
+using MvvmNavigationLib.Services;
+using Union_of_Volunteers.ViewModels.Pages;
 
 namespace Union_of_Volunteers.ViewModels.Popups
 {
     public partial class DonationSentSuccessfullyPopupViewModel: ObservableObject
     {
         private readonly ModalNavigationStore _modalNavigation;
+        private readonly NavigationService<MainPageViewModel> _mainNavigationService;
         private NavigationHelper _navigationHelper;
 
-        public DonationSentSuccessfullyPopupViewModel(ModalNavigationStore modalNavigation, NavigationHelper navigationHelper)
+        public DonationSentSuccessfullyPopupViewModel(ModalNavigationStore modalNavigation, NavigationHelper navigationHelper, NavigationService<MainPageViewModel> mainNavigationService)
         {
+            _mainNavigationService = mainNavigationService;
             _navigationHelper = navigationHelper;
             _modalNavigation = modalNavigation;
             var data = _navigationHelper.Project as string[];
@@ -35,38 +39,33 @@ namespace Union_of_Volunteers.ViewModels.Popups
         {
             string filePath = "JsonData.json";
 
-            // 1. Инициализация файла
             if (!System.IO.File.Exists(filePath))
             {
-                System.IO.File.WriteAllText(filePath, "[]"); // Важно: создаём ПУСТОЙ массив
+                System.IO.File.WriteAllText(filePath, "[]");
             }
 
-            // 2. Чтение и парсинг
             string json = System.IO.File.ReadAllText(filePath);
             JArray array = string.IsNullOrWhiteSpace(json)
                 ? new JArray()
                 : JArray.Parse(json);
 
-            // 3. Поиск объекта
             var user = array.FirstOrDefault(obj => (string)obj["title"] == data[0]);
 
             if (user == null)
             {
-                // Создаём новый объект (НЕ сериализуем в строку отдельно!)
                 JObject newObj = new JObject
                 {
                     ["title"] = data[0],
                     ["sum"] = Convert.ToInt32(data[1])
                 };
 
-                array.Add(newObj); // Добавляем в массив
+                array.Add(newObj);
             }
             else
             {
                 user["sum"] = Convert.ToInt32(data[1]) + (int)user["sum"];
             }
 
-            // 4. Перезаписываем ВЕСЬ файл актуальным массивом
             System.IO.File.WriteAllText(filePath, array.ToString(Formatting.Indented));
 
         }
@@ -75,6 +74,7 @@ namespace Union_of_Volunteers.ViewModels.Popups
         public void ExitPopup()
         {
             _modalNavigation.CurrentViewModel = null;
+            _mainNavigationService.Navigate();
         }
     }
 }
