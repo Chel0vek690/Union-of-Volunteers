@@ -13,10 +13,10 @@
     <Grid>
         <Image Style="{StaticResource Image1}" />
         <Image Style="{StaticResource logo}" Margin="78 57 0 0"/>
-        <StackPanel Style="{StaticResource MainView}">
+        <StackPanel Margin ="730 75 0 0">
             <TextBlock Style="{StaticResource TextTitle}" >
                 <Run Text="В течение 10 лет" Foreground="Red" />
-                <Run Text=" мы помогаем людям замечать проблемы тех, кто рядом, и уметь протянуть руку помощи в нужный момент" />
+                <Run Text="мы помогаем людям замечать проблемы тех, кто рядом, и уметь протянуть руку помощи в нужный момент" />
             </TextBlock>
             <Image Style="{StaticResource who_are_we}" Margin="0 58 0 0"/>
             <TextBlock Style="{StaticResource TextDescription}" Margin="0 8 0 0" Width="840" Text="Мы неравнодушные люди Забайкалья, объединенные в одну добрую команду, помогающую помогать"  />
