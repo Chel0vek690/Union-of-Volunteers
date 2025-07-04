@@ -27,9 +27,7 @@
                 </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate DataType="{x:Type interface:Api}" >
-                        <Border Style="{StaticResource BorderCard}" Background="{Binding Converter={StaticResource BackgroundColorConverter}}" BorderBrush="{Binding Converter={StaticResource BorderColorConverter}}" >
-                            <Button Style="{StaticResource projectCard}" Command="{Binding DataContext.SelectProjectCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}" CommandParameter="{Binding}"/>
-                        </Border>
+                        <Button Style="{StaticResource projectCard}" Command="{Binding DataContext.SelectProjectCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}" CommandParameter="{Binding}"/>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
