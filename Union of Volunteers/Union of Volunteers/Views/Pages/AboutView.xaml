@@ -16,8 +16,8 @@
         <Image Style="{StaticResource dataAbout}" Source="{Binding CurrentSlide.Image}" />
 
         <StackPanel Style="{StaticResource RoundButtonsContainer}">
-            <Button Style="{StaticResource RoundButtonLeft}" Background="{Binding BackgroundButtonLeft}" Command="{Binding PrevSlideCommand}" />
-            <Button Style="{StaticResource RoundButtonRight}" Background="{Binding BackgroundButtonRight}" Command="{Binding NextSlideCommand}" />
+            <Button Style="{StaticResource RoundButtonLeft}" IsEnabled="{Binding BackgroundL}" Command="{Binding PrevSlideCommand}" />
+            <Button Style="{StaticResource RoundButtonRight}" IsEnabled="{Binding BackgroundR}" Command="{Binding NextSlideCommand}" />
         </StackPanel>
         
     </Grid>

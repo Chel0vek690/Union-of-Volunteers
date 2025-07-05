@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using MvvmNavigationLib.Services;
 using System.Collections.ObjectModel;
+using System.Windows;
 
 namespace Union_of_Volunteers.ViewModels.Pages
 {
@@ -13,11 +14,16 @@ namespace Union_of_Volunteers.ViewModels.Pages
         [ObservableProperty]
         private int currentSlideIndex;
 
+        //[ObservableProperty]
+        //private string backgroundButtonRight = "#12529E";
+
+        //[ObservableProperty]
+        //private string backgroundButtonLeft = "#3312529E";
         [ObservableProperty]
-        private string backgroundButtonRight = "#12529E";
+        private bool backgroundL = false;
 
         [ObservableProperty]
-        private string backgroundButtonLeft = "#3312529E";
+        private bool backgroundR = true;
 
         public AboutSlide? CurrentSlide => Slides.Count > 0 ? Slides[CurrentSlideIndex] : null;
 
@@ -34,25 +40,23 @@ namespace Union_of_Volunteers.ViewModels.Pages
         [RelayCommand]
         private void NextSlide()
         {
-            if (CurrentSlideIndex < Slides.Count - 1)
-            {
-                if (CurrentSlide.Id == 4) BackgroundButtonRight = "#3312529E";
-                else BackgroundButtonLeft = "#12529E";
-                CurrentSlideIndex++;
-                OnPropertyChanged(nameof(CurrentSlide));
-            }
+            CurrentSlideIndex++;
+            MessageBox.Show(CurrentSlide.Id.ToString());
+            if (CurrentSlide.Id > 1) BackgroundL = true;
+            if (CurrentSlide.Id == 5) BackgroundR = false;
+            else BackgroundR = true;
+            OnPropertyChanged(nameof(CurrentSlide));
+            
         }
 
         [RelayCommand]
         private void PrevSlide()
         {
-            if (CurrentSlide.Id == 2) BackgroundButtonLeft = "#3312529E";
-            else BackgroundButtonRight = "#12529E";
-            if (CurrentSlideIndex > 0)
-            {
-                CurrentSlideIndex--;
-                OnPropertyChanged(nameof(CurrentSlide));
-            }
+            CurrentSlideIndex--;
+            if (CurrentSlide.Id < 5) BackgroundR = true;
+            if (CurrentSlide.Id == 1) BackgroundL = false;
+            else BackgroundL = true;
+            OnPropertyChanged(nameof(CurrentSlide));
         }
 
         [RelayCommand]
