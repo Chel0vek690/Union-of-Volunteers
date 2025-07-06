@@ -40,17 +40,17 @@
                         <RectangleGeometry Rect="0,0,340,440" RadiusX="20" RadiusY="20"/>
                     </StackPanel.Clip>
                     <WrapPanel Width="294" >
-                        <Button Style="{StaticResource nums}" Content="1" Command="{Binding Number1Command}" Margin="0 21 0 0" />
-                        <Button Style="{StaticResource nums}" Content="2" Command="{Binding Number2Command}" Margin="14 21 0 0" />
-                        <Button Style="{StaticResource nums}" Content="3" Command="{Binding Number3Command}" Margin="14 21 0 0" />
-                        <Button Style="{StaticResource nums}" Content="4" Command="{Binding Number4Command}" Margin="0 14 0 0" />
-                        <Button Style="{StaticResource nums}" Content="5" Command="{Binding Number5Command}" Margin="14 14 0 0"/>
-                        <Button Style="{StaticResource nums}" Content="6" Command="{Binding Number6Command}" Margin="14 14 0 0"/>
-                        <Button Style="{StaticResource nums}" Content="7" Command="{Binding Number7Command}" Margin="0 14 0 0"/>
-                        <Button Style="{StaticResource nums}" Content="8" Command="{Binding Number8Command}" Margin="14 14 0 0"/>
-                        <Button Style="{StaticResource nums}" Content="9" Command="{Binding Number9Command}" Margin="14 14 0 0"/>
-                        <Button Style="{StaticResource nums}" Content="0" Command="{Binding Number0Command}" Margin="0 14 0 0"/>
-                        <Button Style="{StaticResource nums}" Content="Cancel" Command="{Binding ButtonBackspaceCommand}" Width="191" Margin="14 14 0 0" />
+                        <Button Style="{StaticResource nums}" Content="1" Command="{Binding NumberCommand}" CommandParameter="{Binding Content, RelativeSource={RelativeSource Self}}" Margin="0 21 0 0" />
+                        <Button Style="{StaticResource nums}" Content="2" Command="{Binding NumberCommand}" CommandParameter="{Binding Content, RelativeSource={RelativeSource Self}}" Margin="14 21 0 0" />
+                        <Button Style="{StaticResource nums}" Content="3" Command="{Binding NumberCommand}" CommandParameter="{Binding Content, RelativeSource={RelativeSource Self}}" Margin="14 21 0 0" />
+                        <Button Style="{StaticResource nums}" Content="4" Command="{Binding NumberCommand}" CommandParameter="{Binding Content, RelativeSource={RelativeSource Self}}" Margin="0 14 0 0" />
+                        <Button Style="{StaticResource nums}" Content="5" Command="{Binding NumberCommand}" CommandParameter="{Binding Content, RelativeSource={RelativeSource Self}}" Margin="14 14 0 0" />
+                        <Button Style="{StaticResource nums}" Content="6" Command="{Binding NumberCommand}" CommandParameter="{Binding Content, RelativeSource={RelativeSource Self}}" Margin="14 14 0 0" />
+                        <Button Style="{StaticResource nums}" Content="7" Command="{Binding NumberCommand}" CommandParameter="{Binding Content, RelativeSource={RelativeSource Self}}" Margin="0 14 0 0" />
+                        <Button Style="{StaticResource nums}" Content="8" Command="{Binding NumberCommand}" CommandParameter="{Binding Content, RelativeSource={RelativeSource Self}}" Margin="14 14 0 0" />
+                        <Button Style="{StaticResource nums}" Content="9" Command="{Binding NumberCommand}" CommandParameter="{Binding Content, RelativeSource={RelativeSource Self}}" Margin="14 14 0 0" />
+                        <Button Style="{StaticResource nums}" Content="0" Command="{Binding NumberCommand}" CommandParameter="{Binding Content, RelativeSource={RelativeSource Self}}" Margin="0 14 0 0" />
+                        <Button Style="{StaticResource nums}" Content="Cancel" Command="{Binding ButtonBackspaceCommand}" CommandParameter="{Binding Content, RelativeSource={RelativeSource Self}}" Width="191" Margin="14 14 0 0" />
                     </WrapPanel>
                 </StackPanel>
             </StackPanel>
