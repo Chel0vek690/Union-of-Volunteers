@@ -24,10 +24,6 @@
         <Setter Property="Height" Value="831" />
     </Style>
 
-    <Style x:Key="paymentMentmethodButttons" TargetType="StackPanel">
-        <Setter Property="Margin" Value="128 0 0 0" />
-    </Style>
-
     <Style x:Key="paymentMethodPopup" TargetType="Grid">
         <Setter Property="Background" Value="White" />
         <Setter Property="Height" Value="684" />
@@ -47,6 +43,7 @@
     <Style x:Key="rightContainerPopup" TargetType="StackPanel">
         <Setter Property="Orientation" Value="Vertical" />
         <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Margin" Value="106 0 0 0" />
     </Style>
 
     <Style x:Key="backgroundSum" TargetType="Grid">

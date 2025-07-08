@@ -11,8 +11,8 @@
             <RectangleGeometry Rect="0,0,1715,506" RadiusX="30" RadiusY="30"/>
         </Grid.Clip>
         <StackPanel Orientation="Horizontal">
-            <StackPanel Style="{StaticResource paymentMentmethodButttons}">
-                <Image Style="{StaticResource popupImage}" Source="/Resources/Images/PaymentMentmethodIcon.png" />
+            <StackPanel Margin="128 0 0 0" VerticalAlignment="Center">
+                <Image Style="{StaticResource popupImage}" Margin="0" Source="/Resources/Images/PaymentMentmethodIcon.png" />
                 <TextBlock Style="{StaticResource PaymentMethodTitle1}" Text="Поднесите карту" />
                 <TextBlock Style="{StaticResource descriptionPopup}" Text="Пожалуйста, приложите карту к терминалу для завершения пожертвования" />
             </StackPanel>

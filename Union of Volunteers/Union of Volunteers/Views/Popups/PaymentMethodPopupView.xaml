@@ -11,8 +11,8 @@
         <Grid.Clip>
             <RectangleGeometry Rect="0,0,1755,684" RadiusX="30" RadiusY="30"/>
         </Grid.Clip>
-        <StackPanel Orientation="Horizontal">
-            <StackPanel Style="{StaticResource paymentMentmethodButttons}">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <StackPanel>
                 <Image Style="{StaticResource popupImage}" Source="/Resources/Images/PaymentMentmethodIcon.png" />
                 <TextBlock Style="{StaticResource PaymentMethodTitle1}" Text="Выберите способ пожертвования" Margin="0 64 0 0" />
                 <TextBlock Style="{StaticResource PaymentMethodSum}">
