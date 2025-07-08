@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Union_of_Volunteers.Helpers;
+using Union_of_Volunteers.Models;
 
 namespace Union_of_Volunteers.HostBuilders
 {
@@ -15,7 +15,7 @@ namespace Union_of_Volunteers.HostBuilders
         {
             hostBuilder.ConfigureServices((content, services) =>
             {
-                services.AddSingleton<NavigationHelper>();
+                services.AddSingleton<Project>();
             });
             return hostBuilder;
         }

@@ -10,19 +10,23 @@ namespace Union_of_Volunteers.ViewModels.Pages
 
     public partial class ProjectsPageViewModel : ObservableObject
     {
-        private readonly NavigationService<SelectedProjectPageViewModel> _selectedProjectNavigationService;
+        private readonly ParameterNavigationService<SelectedProjectPageViewModel, Project> _selectedProjectNavigationService;
         private readonly NavigationService<MainPageViewModel> _mainPageNavigationService;
-        private readonly NavigationHelper _navigationHelper;
         private readonly ILogger _logger;
+        private readonly ApiHelper _apiService;
+        private readonly Project _project = new();
 
         [ObservableProperty]
         public List<ProjectsApi> projects;
 
-        private readonly ApiHelper _apiService;
-        public ProjectsPageViewModel(ApiHelper apiService, NavigationService<SelectedProjectPageViewModel> selectedProjectNavigationService, NavigationHelper navigationHelper, NavigationService<MainPageViewModel> mainPageNavigationService, ILogger logger)
+        
+        public ProjectsPageViewModel(
+            ApiHelper apiService, 
+            ParameterNavigationService<SelectedProjectPageViewModel, Project> selectedProjectNavigationService, 
+            NavigationService<MainPageViewModel> mainPageNavigationService, 
+            ILogger logger)
         {
             _mainPageNavigationService = mainPageNavigationService;
-            _navigationHelper = navigationHelper;
             _selectedProjectNavigationService = selectedProjectNavigationService;
             _apiService = apiService;
             _logger = logger;
@@ -37,9 +41,12 @@ namespace Union_of_Volunteers.ViewModels.Pages
         [RelayCommand]
         private void SelectProject(ProjectsApi project)
         {
-            _navigationHelper.Project = project;
+            _project.Id = project.id;
+            _project.Title = project.title;
+            _project.Description = project.description;
+            _project.ImageUrl = project.ImageUrl;
             _logger.Information("Выбран проект: {ProjectTitle}", project.title);
-            _selectedProjectNavigationService.Navigate();
+            _selectedProjectNavigationService.Navigate(_project);
         }
 
         [RelayCommand]

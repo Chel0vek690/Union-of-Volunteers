@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Union_of_Volunteers.Helpers;
 using Union_of_Volunteers.Models;
 using System.Windows;
 using MvvmNavigationLib.Stores;
@@ -17,22 +16,25 @@ namespace Union_of_Volunteers.ViewModels.Popups
     public partial class PaymentMethodViewModel: ObservableObject
     {
         private readonly ModalNavigationStore _modalNavigation;
-        private readonly NavigationHelper _navigationHelper;
-        private readonly NavigationService<CardMethodPopupViewModel> _cardMethodPopupViewModel;
-        private readonly NavigationService<QrMethodPopupViewModel> _qrMethodPopupViewModel;
+        private readonly ParameterNavigationService<CardMethodPopupViewModel, Project> _cardMethodPopupViewModel;
+        private readonly ParameterNavigationService<QrMethodPopupViewModel, Project> _qrMethodPopupViewModel;
+        private readonly Project _project;
 
         [ObservableProperty]
         private string price = "";
 
-        public PaymentMethodViewModel(NavigationHelper navigationHelper, ModalNavigationStore modalNavigation, NavigationService<CardMethodPopupViewModel> cardMethodPopupViewModel, NavigationService<QrMethodPopupViewModel> qrMethodPopupViewModel)
+        public PaymentMethodViewModel(
+            Project navigationHelper, 
+            ModalNavigationStore modalNavigation, 
+            ParameterNavigationService<CardMethodPopupViewModel, Project> cardMethodPopupViewModel, 
+            ParameterNavigationService<QrMethodPopupViewModel, Project> qrMethodPopupViewModel, 
+            Project project)
         {
             _cardMethodPopupViewModel = cardMethodPopupViewModel;
             _qrMethodPopupViewModel = qrMethodPopupViewModel;
             _modalNavigation = modalNavigation;
-            _navigationHelper = navigationHelper;
-            var price1 = _navigationHelper.Project as string[];
-            price = price1[1];
-
+            _project = project;
+            price = _project.Price.ToString();
         }
 
         [RelayCommand]
@@ -42,15 +44,9 @@ namespace Union_of_Volunteers.ViewModels.Popups
         }
 
         [RelayCommand]
-        public void CardMethod()
-        {
-            _cardMethodPopupViewModel.Navigate();
-        }
+        public void CardMethod() => _cardMethodPopupViewModel.Navigate(_project);
 
         [RelayCommand]
-        public void QrMethod()
-        {
-            _qrMethodPopupViewModel.Navigate();
-        }
+        public void QrMethod() => _qrMethodPopupViewModel.Navigate(_project);
     }
 }

@@ -1,14 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using MvvmNavigationLib.Services;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Printing;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using Union_of_Volunteers.Helpers;
 using Union_of_Volunteers.Models;
 using Union_of_Volunteers.ViewModels.Popups;
@@ -18,9 +10,9 @@ namespace Union_of_Volunteers.ViewModels.Pages
     public partial class DonationPageViewModel : ObservableObject
     {
         private readonly NavigationService<MainPageViewModel> _mainNavigationService;
-        private readonly NavigationService<PaymentMethodViewModel> _paymentMethodService;
-        private readonly NavigationHelper _navigationHelper;
-        private ApiHelper _apiService;
+        private readonly ParameterNavigationService<PaymentMethodViewModel, Project> _paymentMethodNavigation;
+        private readonly Project? _project;
+        private readonly ApiHelper _apiService;
 
         [ObservableProperty]
         private List<ProjectsApi> projects;
@@ -28,15 +20,18 @@ namespace Union_of_Volunteers.ViewModels.Pages
         [ObservableProperty]
         private ProjectsApi selectedProject;
 
-        public DonationPageViewModel(ApiHelper apiService, NavigationService<MainPageViewModel> mainNavigationService, NavigationService<PaymentMethodViewModel> paymentMethodService, NavigationHelper navigationHelper)
+        public DonationPageViewModel(
+            ApiHelper apiService, 
+            NavigationService<MainPageViewModel> mainNavigationService, 
+            ParameterNavigationService<PaymentMethodViewModel, Project> paymentMethodNavigation, 
+            Project? project)
         {
-            _navigationHelper = navigationHelper;
-            _paymentMethodService = paymentMethodService;
-            RadioButton100 = true;
+            _paymentMethodNavigation = paymentMethodNavigation;
             _mainNavigationService = mainNavigationService;
             _apiService = apiService;
+            _project = project;
+            RadioButton100 = true;
             LoadData();
-            _navigationHelper = navigationHelper;
             ownAmount = "Своя сумма";
         }
 
@@ -51,7 +46,8 @@ namespace Union_of_Volunteers.ViewModels.Pages
                 description = "",
                 image = ""
             });
-            SelectedProject = Projects[0];
+            if (_project.Id == null) SelectedProject = Projects[0];
+            else SelectedProject = Projects[Convert.ToInt32(_project.Id)];
         }
 
         private bool _radioButton5000;
@@ -129,11 +125,11 @@ namespace Union_of_Volunteers.ViewModels.Pages
         public void Number(object parameter)
         {
             if (ownAmount == "Своя сумма")
-            { 
+            {
                 OwnAmount = parameter.ToString();
                 AllRadioButtonsFalse();
             }
-            else OwnAmount += parameter.ToString();   
+            else OwnAmount += parameter.ToString();
         }
 
         [RelayCommand]
@@ -159,26 +155,46 @@ namespace Union_of_Volunteers.ViewModels.Pages
         [RelayCommand]
         public void GoToPaymentMethod()
         {
-            if(selectedProject.title != "Без проекта")
+            Project project = new();
+            if (selectedProject.title != "Без проекта")
             {
-                if (OwnAmount != "Своя сумма" )
-                { 
-                    if(Convert.ToInt32(OwnAmount) > 9)
+                if (OwnAmount != "Своя сумма")
+                {
+                    if (Convert.ToInt32(OwnAmount) > 9)
                     {
-                        _navigationHelper.Project = new string[] { SelectedProject.title, OwnAmount };
-                        _paymentMethodService.Navigate();
+                        project.Title = SelectedProject.title;
+                        project.Price = Convert.ToInt32(OwnAmount);
+                        _paymentMethodNavigation.Navigate(project);
                     }
                 }
                 else
                 {
-                    if (_radioButton5000) _navigationHelper.Project = new string[] { SelectedProject.title, "5000" };
-                    else if (_radioButton1000) _navigationHelper.Project = new string[] { SelectedProject.title, "1000" };
-                    else if (_radioButton500) _navigationHelper.Project = new string[] { SelectedProject.title, "500" };
-                    else if (_radioButton100) _navigationHelper.Project = new string[] { SelectedProject.title, "100" };
-                    _paymentMethodService.Navigate();
+
+                    if (_radioButton5000)
+                    {
+                        project.Title = SelectedProject.title;
+                        project.Price = 5000;
+                    }
+                    else if (_radioButton1000)
+                    {
+                        project.Title = SelectedProject.title;
+                        project.Price = 1000;
+                    }
+                    else if (_radioButton500)
+                    { 
+                        project.Title = SelectedProject.title;
+                        project.Price = 500;
+                    } 
+                    else if (_radioButton100)
+                    {
+                        project.Title = SelectedProject.title;
+                        project.Price = 100;
+                    }
+
+                    _paymentMethodNavigation.Navigate(project);
                 }
             }
-            
+
         }
     }
 }

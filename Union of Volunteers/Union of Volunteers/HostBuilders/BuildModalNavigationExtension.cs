@@ -4,6 +4,7 @@ using Microsoft.Extensions.Hosting;
 using MvvmNavigationLib.Services;
 using MvvmNavigationLib.Services.ServiceCollectionExtensions;
 using MvvmNavigationLib.Stores;
+using Union_of_Volunteers.Models;
 using Union_of_Volunteers.ViewModels.Popups;
 using Union_of_Volunteers.Views.Popups;
 
@@ -21,14 +22,12 @@ namespace Union_of_Volunteers.HostBuilders
                 services.AddNavigationService<PasswordPopupViewModel, ModalNavigationStore>(s => new PasswordPopupViewModel(
                     s.GetRequiredService<CloseNavigationService<ModalNavigationStore>>(),
                     context.Configuration.GetValue<string>("exitPassword") ?? "1234"));
-                services.AddNavigationService<PaymentMethodViewModel, ModalNavigationStore>();
-                services.AddNavigationService<CardMethodPopupViewModel, ModalNavigationStore>();
-                services.AddNavigationService<QrMethodPopupViewModel, ModalNavigationStore>();
-                services.AddNavigationService<DonationProcessingPopupViewModel, ModalNavigationStore>();
-                services.AddNavigationService<DonationSentSuccessfullyPopupViewModel, ModalNavigationStore>();
-
+                services.AddParameterNavigationService<PaymentMethodViewModel, ModalNavigationStore, Project>(provider => param => ActivatorUtilities.CreateInstance<PaymentMethodViewModel>(provider, param));
+                services.AddParameterNavigationService<CardMethodPopupViewModel, ModalNavigationStore, Project>(provider => param => ActivatorUtilities.CreateInstance<CardMethodPopupViewModel>(provider, param));
+                services.AddParameterNavigationService<QrMethodPopupViewModel, ModalNavigationStore, Project>(provider => param => ActivatorUtilities.CreateInstance<QrMethodPopupViewModel>(provider, param));
+                services.AddParameterNavigationService<DonationSentSuccessfullyPopupViewModel, ModalNavigationStore, Project>(provider => param => ActivatorUtilities.CreateInstance<DonationSentSuccessfullyPopupViewModel>(provider, param));
+                services.AddParameterNavigationService<DonationProcessingPopupViewModel, ModalNavigationStore, Project>(provider => param => ActivatorUtilities.CreateInstance<DonationProcessingPopupViewModel>(provider, param));
             });
-
             return builder;
         }
     }

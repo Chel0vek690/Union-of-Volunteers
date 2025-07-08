@@ -8,29 +8,32 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Union_of_Volunteers.Helpers;
+using Union_of_Volunteers.Models;
 
 namespace Union_of_Volunteers.ViewModels.Popups
 {
     public partial class QrMethodPopupViewModel: ObservableObject
     {
-        NavigationHelper _navigationHelper;
-        private Timer timer;
+        private readonly Timer timer;
         private readonly ModalNavigationStore _modalNavigation;
-        private readonly NavigationService<DonationProcessingPopupViewModel> _donationProcessingPopupViewModel;
+        private readonly ParameterNavigationService<DonationProcessingPopupViewModel, Project> _donationProcessingPopupViewModel;
+        private readonly Project _project;
 
         [ObservableProperty]
         private string price = "";
-        public QrMethodPopupViewModel(NavigationHelper navigationHelper, ModalNavigationStore modalNavigation, NavigationService<DonationProcessingPopupViewModel> donationProcessingPopupViewModel)
+        public QrMethodPopupViewModel(
+            Project navigationHelper, 
+            ModalNavigationStore modalNavigation, 
+            ParameterNavigationService<DonationProcessingPopupViewModel, Project> donationProcessingPopupViewModel, 
+            Project project)
         {
+            _project = project;
             _donationProcessingPopupViewModel = donationProcessingPopupViewModel;
             _modalNavigation = modalNavigation;
-            _navigationHelper = navigationHelper;
-            var price1 = _navigationHelper.Project as string[];
-            price = price1[1];
+            price = _project.Price.ToString();
             timer = new Timer((e) =>
             {
-                _donationProcessingPopupViewModel.Navigate();
+                _donationProcessingPopupViewModel.Navigate(_project);
                 timer.Dispose();
             }, null, 5000, Timeout.Infinite);
 

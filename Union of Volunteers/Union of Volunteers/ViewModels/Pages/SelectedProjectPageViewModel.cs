@@ -1,22 +1,16 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using MvvmNavigationLib.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using Union_of_Volunteers.Helpers;
 using Union_of_Volunteers.Models;
 
 namespace Union_of_Volunteers.ViewModels.Pages
 {
     public partial class SelectedProjectPageViewModel : ObservableObject
     {
-        private readonly NavigationHelper _navigationHelper;
+        private readonly Project _project;
         private readonly NavigationService<ProjectsPageViewModel> _projectsNavigationService;
-        private readonly NavigationService<DonationPageViewModel> _donationNavigationService;
+        private readonly ParameterNavigationService<DonationPageViewModel, Project> _donationPageViewModel;
+
 
         [ObservableProperty]
         private string selectedTitle;
@@ -27,15 +21,17 @@ namespace Union_of_Volunteers.ViewModels.Pages
         [ObservableProperty]
         private string selectedDescription;
 
-        public SelectedProjectPageViewModel(NavigationHelper navigationHelper, NavigationService<ProjectsPageViewModel> projectsNavigationService, NavigationService<DonationPageViewModel> donationNavigationService)
+        public SelectedProjectPageViewModel(
+            Project project, 
+            NavigationService<ProjectsPageViewModel> projectsNavigationService, 
+            ParameterNavigationService<DonationPageViewModel, Project> donationPageViewModel)
         {
-            _donationNavigationService = donationNavigationService;
+            _donationPageViewModel = donationPageViewModel;
             _projectsNavigationService = projectsNavigationService;
-            _navigationHelper = navigationHelper;
-            var selectedProject = _navigationHelper.Project as ProjectsApi;
-            SelectedTitle = selectedProject.title;
-            SelectedImageUrl = selectedProject.ImageUrl;
-            SelectedDescription = selectedProject.description;
+            _project = project;
+            SelectedTitle = _project.Title;
+            SelectedImageUrl = _project.ImageUrl;
+            SelectedDescription = _project.Description;
         }
 
         [RelayCommand]
@@ -47,7 +43,7 @@ namespace Union_of_Volunteers.ViewModels.Pages
         [RelayCommand]
         public void Donate()
         {
-            _donationNavigationService.Navigate();
+            _donationPageViewModel.Navigate(_project);
         }
     }
 

@@ -9,7 +9,6 @@ using System.Linq;
 using System.Text;
 using System.Text.Json.Nodes;
 using System.Threading.Tasks;
-using Union_of_Volunteers.Helpers;
 using Newtonsoft.Json.Linq;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.Windows.Markup;
@@ -24,18 +23,24 @@ namespace Union_of_Volunteers.ViewModels.Popups
     {
         private readonly ModalNavigationStore _modalNavigation;
         private readonly NavigationService<MainPageViewModel> _mainNavigationService;
-        private NavigationHelper _navigationHelper;
+        private readonly Project _project;
 
-        public DonationSentSuccessfullyPopupViewModel(ModalNavigationStore modalNavigation, NavigationHelper navigationHelper, NavigationService<MainPageViewModel> mainNavigationService)
+
+
+        public DonationSentSuccessfullyPopupViewModel(
+            ModalNavigationStore modalNavigation, 
+            Project project, 
+            NavigationService<MainPageViewModel> mainNavigationService)
         {
             _mainNavigationService = mainNavigationService;
-            _navigationHelper = navigationHelper;
+            _project = project;
             _modalNavigation = modalNavigation;
-            var data = _navigationHelper.Project as string[];
-            WriteJson(data);
+            var title = _project.Title;
+            var sum = _project.Price;
+            WriteJson(title, sum);
         }
 
-        private void WriteJson(string[] data)
+        private void WriteJson(string? title, int? sum)
         {
             string filePath = "JsonData.json";
 
@@ -49,21 +54,21 @@ namespace Union_of_Volunteers.ViewModels.Popups
                 ? new JArray()
                 : JArray.Parse(json);
 
-            var user = array.FirstOrDefault(obj => (string)obj["title"] == data[0]);
+            var user = array.FirstOrDefault(obj => (string)obj["title"] == title);
 
             if (user == null)
             {
                 JObject newObj = new JObject
                 {
-                    ["title"] = data[0],
-                    ["sum"] = Convert.ToInt32(data[1])
+                    ["title"] = title,
+                    ["sum"] = Convert.ToInt32(sum)
                 };
 
                 array.Add(newObj);
             }
             else
             {
-                user["sum"] = Convert.ToInt32(data[1]) + (int)user["sum"];
+                user["sum"] = Convert.ToInt32(sum) + (int)user["sum"];
             }
 
             System.IO.File.WriteAllText(filePath, array.ToString(Formatting.Indented));
