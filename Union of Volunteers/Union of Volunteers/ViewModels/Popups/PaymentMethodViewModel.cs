@@ -33,7 +33,6 @@ namespace Union_of_Volunteers.ViewModels.Popups
             _qrMethodPopupViewModel = qrMethodPopupViewModel;
             _modalNavigation = modalNavigation;
             _project = project;
-            MessageBox.Show(project.Price.ToString());
             price = _project.Price.ToString();
         }
 
