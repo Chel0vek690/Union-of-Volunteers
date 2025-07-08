@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using MvvmNavigationLib.Services;
+using System.Windows;
 using Union_of_Volunteers.Helpers;
 using Union_of_Volunteers.Models;
 using Union_of_Volunteers.ViewModels.Popups;
@@ -161,16 +162,15 @@ namespace Union_of_Volunteers.ViewModels.Pages
         [RelayCommand]
         public void GoToPaymentMethod()
         {
-            Project project = new();
             if (selectedProject.title != "Без проекта")
             {
                 if (OwnAmount != "Своя сумма")
                 {
                     if (Convert.ToInt32(OwnAmount) > 9)
                     {
-                        project.Title = SelectedProject.title;
-                        project.Price = Convert.ToInt32(OwnAmount);
-                        _paymentMethodNavigation.Navigate(project);
+                        _project.Title = SelectedProject.title;
+                        _project.Price = Convert.ToInt32(OwnAmount);
+                        _paymentMethodNavigation.Navigate(_project);
                     }
                 }
                 else
@@ -178,26 +178,25 @@ namespace Union_of_Volunteers.ViewModels.Pages
 
                     if (_radioButton5000)
                     {
-                        project.Title = SelectedProject.title;
-                        project.Price = 5000;
+                        _project.Title = SelectedProject.title;
+                        _project.Price = 5000;
                     }
                     else if (_radioButton1000)
                     {
-                        project.Title = SelectedProject.title;
-                        project.Price = 1000;
+                        _project.Title = SelectedProject.title;
+                        _project.Price = 1000;
                     }
                     else if (_radioButton500)
                     { 
-                        project.Title = SelectedProject.title;
-                        project.Price = 500;
+                        _project.Title = SelectedProject.title;
+                        _project.Price = 500;
                     } 
                     else if (_radioButton100)
                     {
-                        project.Title = SelectedProject.title;
-                        project.Price = 100;
+                        _project.Title = SelectedProject.title;
+                        _project.Price = 100;
                     }
-
-                    _paymentMethodNavigation.Navigate(project);
+                    _paymentMethodNavigation.Navigate(_project);
                 }
             }
 

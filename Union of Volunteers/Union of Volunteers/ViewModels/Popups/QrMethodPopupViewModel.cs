@@ -22,7 +22,6 @@ namespace Union_of_Volunteers.ViewModels.Popups
         [ObservableProperty]
         private string price = "";
         public QrMethodPopupViewModel(
-            Project navigationHelper, 
             ModalNavigationStore modalNavigation, 
             ParameterNavigationService<DonationProcessingPopupViewModel, Project> donationProcessingPopupViewModel, 
             Project project)

@@ -18,13 +18,12 @@ namespace Union_of_Volunteers.ViewModels.Popups
         private readonly ModalNavigationStore _modalNavigation;
         private readonly ParameterNavigationService<CardMethodPopupViewModel, Project> _cardMethodPopupViewModel;
         private readonly ParameterNavigationService<QrMethodPopupViewModel, Project> _qrMethodPopupViewModel;
-        private readonly Project _project;
+        private Project _project;
 
         [ObservableProperty]
         private string price = "";
 
         public PaymentMethodViewModel(
-            Project navigationHelper, 
             ModalNavigationStore modalNavigation, 
             ParameterNavigationService<CardMethodPopupViewModel, Project> cardMethodPopupViewModel, 
             ParameterNavigationService<QrMethodPopupViewModel, Project> qrMethodPopupViewModel, 
@@ -34,6 +33,7 @@ namespace Union_of_Volunteers.ViewModels.Popups
             _qrMethodPopupViewModel = qrMethodPopupViewModel;
             _modalNavigation = modalNavigation;
             _project = project;
+            MessageBox.Show(project.Price.ToString());
             price = _project.Price.ToString();
         }
 
