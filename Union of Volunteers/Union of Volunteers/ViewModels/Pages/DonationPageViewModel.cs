@@ -133,6 +133,12 @@ namespace Union_of_Volunteers.ViewModels.Pages
         }
 
         [RelayCommand]
+        public void Number0()
+        {
+            if (OwnAmount != "Своя сумма") OwnAmount += "0";
+        }
+
+        [RelayCommand]
         public void ButtonBackspace()
         {
             if (OwnAmount.Length > 0 && OwnAmount != "Своя сумма")
