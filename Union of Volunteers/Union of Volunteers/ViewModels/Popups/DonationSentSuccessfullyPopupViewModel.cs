@@ -16,22 +16,27 @@ using Union_of_Volunteers.Models;
 using static System.Net.WebRequestMethods;
 using MvvmNavigationLib.Services;
 using Union_of_Volunteers.ViewModels.Pages;
+using MainComponents.Popups;
 
 namespace Union_of_Volunteers.ViewModels.Popups
 {
-    public partial class DonationSentSuccessfullyPopupViewModel: ObservableObject
+    public partial class DonationSentSuccessfullyPopupViewModel: BasePopupViewModel
     {
         private readonly ModalNavigationStore _modalNavigation;
         private readonly NavigationService<MainPageViewModel> _mainNavigationService;
         private readonly Project _project;
+        private readonly INavigationService _closeModalNavigationService;
 
 
 
         public DonationSentSuccessfullyPopupViewModel(
+            INavigationService closeModalNavigationService,
             ModalNavigationStore modalNavigation, 
             Project project, 
             NavigationService<MainPageViewModel> mainNavigationService)
+            : base(closeModalNavigationService)
         {
+            _closeModalNavigationService = closeModalNavigationService;
             _mainNavigationService = mainNavigationService;
             _project = project;
             _modalNavigation = modalNavigation;
@@ -78,7 +83,7 @@ namespace Union_of_Volunteers.ViewModels.Popups
         [RelayCommand]
         public void ExitPopup()
         {
-            _modalNavigation.CurrentViewModel = null;
+            _closeModalNavigationService.Navigate();
             _mainNavigationService.Navigate();
         }
     }

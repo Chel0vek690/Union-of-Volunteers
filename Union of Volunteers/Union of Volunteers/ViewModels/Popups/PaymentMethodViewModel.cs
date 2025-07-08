@@ -13,22 +13,26 @@ using MvvmNavigationLib.Stores;
 
 namespace Union_of_Volunteers.ViewModels.Popups
 {
-    public partial class PaymentMethodViewModel: ObservableObject
+    public partial class PaymentMethodViewModel: BasePopupViewModel
     {
         private readonly ModalNavigationStore _modalNavigation;
         private readonly ParameterNavigationService<CardMethodPopupViewModel, Project> _cardMethodPopupViewModel;
         private readonly ParameterNavigationService<QrMethodPopupViewModel, Project> _qrMethodPopupViewModel;
         private Project _project;
+        INavigationService _closeModalNavigationService;
 
         [ObservableProperty]
         private string price = "";
 
         public PaymentMethodViewModel(
+            INavigationService closeModalNavigationService,
             ModalNavigationStore modalNavigation, 
             ParameterNavigationService<CardMethodPopupViewModel, Project> cardMethodPopupViewModel, 
             ParameterNavigationService<QrMethodPopupViewModel, Project> qrMethodPopupViewModel, 
             Project project)
+            : base(closeModalNavigationService)
         {
+            _closeModalNavigationService = closeModalNavigationService;
             _cardMethodPopupViewModel = cardMethodPopupViewModel;
             _qrMethodPopupViewModel = qrMethodPopupViewModel;
             _modalNavigation = modalNavigation;
@@ -37,10 +41,7 @@ namespace Union_of_Volunteers.ViewModels.Popups
         }
 
         [RelayCommand]
-        public void ExitPopup()
-        {
-            _modalNavigation.CurrentViewModel = null;
-        }
+        public void ExitPopup() => _closeModalNavigationService.Navigate();
 
         [RelayCommand]
         public void CardMethod() => _cardMethodPopupViewModel.Navigate(_project);

@@ -22,10 +22,10 @@ namespace Union_of_Volunteers.HostBuilders
                 services.AddNavigationService<PasswordPopupViewModel, ModalNavigationStore>(s => new PasswordPopupViewModel(
                     s.GetRequiredService<CloseNavigationService<ModalNavigationStore>>(),
                     context.Configuration.GetValue<string>("exitPassword") ?? "1234"));
-                services.AddParameterNavigationService<PaymentMethodViewModel, ModalNavigationStore, Project>(provider => param => ActivatorUtilities.CreateInstance<PaymentMethodViewModel>(provider, param));
-                services.AddParameterNavigationService<CardMethodPopupViewModel, ModalNavigationStore, Project>(provider => param => ActivatorUtilities.CreateInstance<CardMethodPopupViewModel>(provider, param));
-                services.AddParameterNavigationService<QrMethodPopupViewModel, ModalNavigationStore, Project>(provider => param => ActivatorUtilities.CreateInstance<QrMethodPopupViewModel>(provider, param));
-                services.AddParameterNavigationService<DonationSentSuccessfullyPopupViewModel, ModalNavigationStore, Project>(provider => param => ActivatorUtilities.CreateInstance<DonationSentSuccessfullyPopupViewModel>(provider, param));
+                services.AddParameterNavigationService<PaymentMethodViewModel, ModalNavigationStore, Project>(provider => param => ActivatorUtilities.CreateInstance<PaymentMethodViewModel>(provider, param, provider.GetRequiredService<CloseNavigationService<ModalNavigationStore>>()));
+                services.AddParameterNavigationService<CardMethodPopupViewModel, ModalNavigationStore, Project>(provider => param => ActivatorUtilities.CreateInstance<CardMethodPopupViewModel>(provider, param, provider.GetRequiredService<CloseNavigationService<ModalNavigationStore>>()));
+                services.AddParameterNavigationService<QrMethodPopupViewModel, ModalNavigationStore, Project>(provider => param => ActivatorUtilities.CreateInstance<QrMethodPopupViewModel>(provider, param, provider.GetRequiredService<CloseNavigationService<ModalNavigationStore>>()));
+                services.AddParameterNavigationService<DonationSentSuccessfullyPopupViewModel, ModalNavigationStore, Project>(provider => param => ActivatorUtilities.CreateInstance<DonationSentSuccessfullyPopupViewModel>(provider, param, provider.GetRequiredService<CloseNavigationService<ModalNavigationStore>>()));
                 services.AddParameterNavigationService<DonationProcessingPopupViewModel, ModalNavigationStore, Project>(provider => param => ActivatorUtilities.CreateInstance<DonationProcessingPopupViewModel>(provider, param));
             });
             return builder;

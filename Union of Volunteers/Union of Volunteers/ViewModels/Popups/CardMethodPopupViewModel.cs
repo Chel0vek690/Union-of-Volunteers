@@ -3,28 +3,29 @@ using CommunityToolkit.Mvvm.Input;
 using MvvmNavigationLib.Services;
 using MvvmNavigationLib.Stores;
 using Union_of_Volunteers.Models;
-
+using System.Threading;
+using MainComponents.Popups;
 
 namespace Union_of_Volunteers.ViewModels.Popups
 {
-    public partial class CardMethodPopupViewModel : ObservableObject
+    public partial class CardMethodPopupViewModel : BasePopupViewModel
     {
         [ObservableProperty]
         private string price = "";
 
         private readonly ParameterNavigationService<DonationProcessingPopupViewModel, Project> _donationProcessingPopupViewModel;
-        private readonly ModalNavigationStore _modalNavigation;
         private readonly Timer timer;
         private readonly Project _project;
+        private readonly INavigationService _closeModalNavigationService;
 
         public CardMethodPopupViewModel(
+            INavigationService closeModalNavigationService, 
             Project project, 
-            ModalNavigationStore modalNavigation, 
-            ModalNavigationStore modalNavigationStore, 
-            ParameterNavigationService<DonationProcessingPopupViewModel, Project> donationProcessingPopupViewModel)
+            ParameterNavigationService<DonationProcessingPopupViewModel,Project> donationProcessingPopupViewModel) 
+            : base(closeModalNavigationService)
         {
+            _closeModalNavigationService = closeModalNavigationService;
             _donationProcessingPopupViewModel = donationProcessingPopupViewModel;
-            _modalNavigation = modalNavigation;
             _project = project;
             price = _project.Price.ToString();
             timer = new Timer((e) =>
@@ -38,7 +39,7 @@ namespace Union_of_Volunteers.ViewModels.Popups
         public void ExitPopup()
         {
             timer.Dispose();
-            _modalNavigation.CurrentViewModel = null;
+            _closeModalNavigationService.Navigate();
         }
     }
 }
