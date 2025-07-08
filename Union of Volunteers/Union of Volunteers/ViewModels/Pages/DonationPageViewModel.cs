@@ -1,13 +1,18 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using MvvmNavigationLib.Services;
+using System.Collections;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.Windows;
 using Union_of_Volunteers.Helpers;
 using Union_of_Volunteers.Models;
 using Union_of_Volunteers.ViewModels.Popups;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Union_of_Volunteers.ViewModels.Pages
 {
-    public partial class DonationPageViewModel : ObservableObject
+    public partial class DonationPageViewModel : ObservableValidator, INotifyDataErrorInfo
     {
         private readonly NavigationService<MainPageViewModel> _mainNavigationService;
         private readonly ParameterNavigationService<PaymentMethodViewModel, Project> _paymentMethodNavigation;
@@ -19,6 +24,22 @@ namespace Union_of_Volunteers.ViewModels.Pages
 
         [ObservableProperty]
         private ProjectsApi selectedProject;
+
+        private readonly Dictionary<string, List<string>> _errors = [];
+
+        public new bool HasErrors => _errors.ContainsKey(nameof(OwnAmount)) && _errors[nameof(OwnAmount)].Count > 0;
+        public bool HasErrorsComboBox => _errors.ContainsKey(nameof(SelectedProject)) && _errors[nameof(SelectedProject)].Count > 0;
+
+        public event EventHandler<DataErrorsChangedEventArgs>? ErrorsChanged;
+
+        public IEnumerable GetErrors(string? propertyName)
+        {
+            if (string.IsNullOrEmpty(propertyName))
+                return _errors.SelectMany(e => e.Value);
+            if (_errors.ContainsKey(propertyName))
+                return _errors[propertyName];
+            return Enumerable.Empty<string>();
+        }
 
         public DonationPageViewModel(
             ApiHelper apiService,
@@ -161,6 +182,8 @@ namespace Union_of_Volunteers.ViewModels.Pages
         [RelayCommand]
         public void GoToPaymentMethod()
         {
+            ValidateComboBox();
+            ValidateOwnAmount();
             if (selectedProject.title != "Без проекта")
             {
                 if (OwnAmount != "Своя сумма")
@@ -174,7 +197,6 @@ namespace Union_of_Volunteers.ViewModels.Pages
                 }
                 else
                 {
-
                     if (_radioButton5000)
                     {
                         _project.Title = SelectedProject.title;
@@ -198,7 +220,31 @@ namespace Union_of_Volunteers.ViewModels.Pages
                     _paymentMethodNavigation.Navigate(_project);
                 }
             }
+        }
 
+        private void ValidateOwnAmount()
+        {
+            _errors.Remove(nameof(OwnAmount));
+            if (OwnAmount != "Своя сумма")
+            {
+                if (!int.TryParse(OwnAmount, out int amount) || amount < 10)
+                {
+                    _errors[nameof(OwnAmount)] = ["Сумма должна быть числом не меньше 10."];
+                }
+            }
+            OnPropertyChanged(nameof(HasErrors));
+            ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(nameof(OwnAmount)));
+        }
+
+        private void ValidateComboBox()
+        {
+            _errors.Remove(nameof(SelectedProject));
+            if (SelectedProject == null || SelectedProject.title == "Без проекта")
+            {
+                _errors[nameof(SelectedProject)] = ["Выберите проект"];
+            }
+            OnPropertyChanged(nameof(HasErrorsComboBox));
+            ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(nameof(SelectedProject)));
         }
     }
 }

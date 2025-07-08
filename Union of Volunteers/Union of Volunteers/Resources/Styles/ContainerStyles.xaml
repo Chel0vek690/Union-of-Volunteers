@@ -298,6 +298,7 @@
         <Setter Property="OverridesDefaultStyle" Value="True"/>
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
+
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ComboBox">
@@ -346,6 +347,11 @@
                         </Popup>
                     </Grid>
                     <ControlTemplate.Triggers>
+                        <DataTrigger Binding="{Binding HasErrorsComboBox}" Value="True">
+                            <Setter TargetName="Border" Property="BorderBrush" Value="Red"/>
+                            <Setter TargetName="Border" Property="BorderThickness" Value="2"/>
+                            <Setter Property="Foreground" Value="Red" />
+                        </DataTrigger>
                         <Trigger Property="IsDropDownOpen" Value="True">
                             <Setter TargetName="Image" Property="Source" Value="/Resources/Images/arrow1.png" />
                         </Trigger>

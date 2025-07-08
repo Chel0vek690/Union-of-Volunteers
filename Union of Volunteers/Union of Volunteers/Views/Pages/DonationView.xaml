@@ -16,7 +16,7 @@
             <StackPanel Orientation="Horizontal" Margin="50 80 0 0">
                 <StackPanel>
                     <TextBlock Style="{StaticResource selectedProjectTitle}" Text="Выберите проект" HorizontalAlignment="Left" />
-                    <ComboBox Style="{StaticResource FlatComboBox}" ItemsSource="{Binding Projects}" SelectedItem="{Binding SelectedProject}" Margin="0 42 0 0">
+                    <ComboBox Style="{StaticResource FlatComboBox}" ItemsSource="{Binding Projects}" SelectedItem="{Binding SelectedProject, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Margin="0 42 0 0">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding title}" />
@@ -31,9 +31,9 @@
                         <RadioButton GroupName="Sum" Content="5000 ₽" IsChecked="{Binding RadioButton5000}" Margin="64 0 0 0" />
                     </StackPanel>
                     <Border Style="{StaticResource sumBorder}">
-                        <TextBlock Style="{StaticResource sumValue}" Text="{Binding OwnAmount}" />
+                        <TextBlock x:Name="OwnAmountName" Style="{StaticResource sumValue}" Text="{Binding OwnAmount, NotifyOnValidationError=True, ValidatesOnDataErrors=True}" />
                     </Border>
-                    <TextBlock Style="{StaticResource min10}" Text="Минимальная сумма пожертвования 10 ₽" />
+                    <TextBlock Focusable="False" Style="{StaticResource min10}" Text="Минимальная сумма пожертвования 10 ₽" />
                 </StackPanel>
                 <StackPanel Style="{StaticResource numPad}">
                     <StackPanel.Clip>
