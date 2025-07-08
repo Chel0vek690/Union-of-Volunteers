@@ -9,7 +9,6 @@ using Union_of_Volunteers.ViewModels;
 using Union_of_Volunteers.ViewModels.Pages;
 using Union_of_Volunteers.ViewModels.Popups;
 using Union_of_Volunteers.ViewModels.Windows;
-using Union_of_Volunteers.Views.Popups;
 
 namespace Union_of_Volunteers.HostBuilders
 {

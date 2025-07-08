@@ -3,9 +3,7 @@ using Microsoft.Extensions.Hosting;
 using MvvmNavigationLib.Services.ServiceCollectionExtensions;
 using MvvmNavigationLib.Stores;
 using Union_of_Volunteers.Models;
-using Union_of_Volunteers.ViewModels;
 using Union_of_Volunteers.ViewModels.Pages;
-using Union_of_Volunteers.ViewModels.Popups;
 
 namespace Union_of_Volunteers.HostBuilders
 {

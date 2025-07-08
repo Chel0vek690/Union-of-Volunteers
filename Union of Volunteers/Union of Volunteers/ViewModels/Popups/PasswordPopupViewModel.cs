@@ -9,7 +9,10 @@ namespace Union_of_Volunteers.ViewModels.Popups
     public partial class PasswordPopupViewModel(INavigationService closeModalNavigationService, string password)
         : BasePopupViewModel(closeModalNavigationService)
     {
-        [ObservableProperty] private bool _isPinPadOpen = true;
+
+
+        [ObservableProperty] 
+        private bool _isPinPadOpen = true;
 
         private string _currentPassword = string.Empty;
         public string CurrentPassword

@@ -1,10 +1,9 @@
-﻿using System.Windows;
-using System.Windows.Threading;
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using MvvmNavigationLib.Services;
 using MvvmNavigationLib.Stores;
+using System.Windows.Threading;
 using Union_of_Volunteers.Helpers;
 using Union_of_Volunteers.ViewModels.Pages;
 using Union_of_Volunteers.ViewModels.Popups;

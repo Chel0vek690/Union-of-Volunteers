@@ -1,5 +1,4 @@
-﻿using System.Windows;
-using Union_of_Volunteers.Models;
+﻿using Union_of_Volunteers.Models;
 using Union_of_Volunteers.Models.Interfaces;
 
 namespace Union_of_Volunteers.Helpers
@@ -12,7 +11,7 @@ namespace Union_of_Volunteers.Helpers
         {
             _apiClient = apiClient;
         }
-       
+
         public async Task<List<ProjectsApi>> GetProjects()
         {
             List<ProjectsApi> data = await _apiClient.GetProjects();

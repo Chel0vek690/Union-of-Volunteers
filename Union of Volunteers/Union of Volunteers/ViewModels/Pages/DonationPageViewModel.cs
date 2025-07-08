@@ -1,7 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using MvvmNavigationLib.Services;
-using System.Windows;
 using Union_of_Volunteers.Helpers;
 using Union_of_Volunteers.Models;
 using Union_of_Volunteers.ViewModels.Popups;
@@ -22,9 +21,9 @@ namespace Union_of_Volunteers.ViewModels.Pages
         private ProjectsApi selectedProject;
 
         public DonationPageViewModel(
-            ApiHelper apiService, 
-            NavigationService<MainPageViewModel> mainNavigationService, 
-            ParameterNavigationService<PaymentMethodViewModel, Project> paymentMethodNavigation, 
+            ApiHelper apiService,
+            NavigationService<MainPageViewModel> mainNavigationService,
+            ParameterNavigationService<PaymentMethodViewModel, Project> paymentMethodNavigation,
             Project? project)
         {
             _paymentMethodNavigation = paymentMethodNavigation;
@@ -187,10 +186,10 @@ namespace Union_of_Volunteers.ViewModels.Pages
                         _project.Price = 1000;
                     }
                     else if (_radioButton500)
-                    { 
+                    {
                         _project.Title = SelectedProject.title;
                         _project.Price = 500;
-                    } 
+                    }
                     else if (_radioButton100)
                     {
                         _project.Title = SelectedProject.title;

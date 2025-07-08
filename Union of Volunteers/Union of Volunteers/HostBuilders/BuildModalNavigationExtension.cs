@@ -6,7 +6,6 @@ using MvvmNavigationLib.Services.ServiceCollectionExtensions;
 using MvvmNavigationLib.Stores;
 using Union_of_Volunteers.Models;
 using Union_of_Volunteers.ViewModels.Popups;
-using Union_of_Volunteers.Views.Popups;
 
 namespace Union_of_Volunteers.HostBuilders
 {
@@ -31,4 +30,4 @@ namespace Union_of_Volunteers.HostBuilders
             return builder;
         }
     }
-}           
+}

@@ -2,18 +2,12 @@
 using CommunityToolkit.Mvvm.Input;
 using MainComponents.Popups;
 using MvvmNavigationLib.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Union_of_Volunteers.Models;
-using System.Windows;
 using MvvmNavigationLib.Stores;
+using Union_of_Volunteers.Models;
 
 namespace Union_of_Volunteers.ViewModels.Popups
 {
-    public partial class PaymentMethodViewModel: BasePopupViewModel
+    public partial class PaymentMethodViewModel : BasePopupViewModel
     {
         private readonly ModalNavigationStore _modalNavigation;
         private readonly ParameterNavigationService<CardMethodPopupViewModel, Project> _cardMethodPopupViewModel;
@@ -26,9 +20,9 @@ namespace Union_of_Volunteers.ViewModels.Popups
 
         public PaymentMethodViewModel(
             INavigationService closeModalNavigationService,
-            ModalNavigationStore modalNavigation, 
-            ParameterNavigationService<CardMethodPopupViewModel, Project> cardMethodPopupViewModel, 
-            ParameterNavigationService<QrMethodPopupViewModel, Project> qrMethodPopupViewModel, 
+            ModalNavigationStore modalNavigation,
+            ParameterNavigationService<CardMethodPopupViewModel, Project> cardMethodPopupViewModel,
+            ParameterNavigationService<QrMethodPopupViewModel, Project> qrMethodPopupViewModel,
             Project project)
             : base(closeModalNavigationService)
         {

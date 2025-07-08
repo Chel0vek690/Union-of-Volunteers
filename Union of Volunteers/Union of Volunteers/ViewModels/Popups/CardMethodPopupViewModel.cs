@@ -1,10 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using MvvmNavigationLib.Services;
-using MvvmNavigationLib.Stores;
-using Union_of_Volunteers.Models;
-using System.Threading;
 using MainComponents.Popups;
+using MvvmNavigationLib.Services;
+using Union_of_Volunteers.Models;
 
 namespace Union_of_Volunteers.ViewModels.Popups
 {
@@ -19,9 +17,9 @@ namespace Union_of_Volunteers.ViewModels.Popups
         private readonly INavigationService _closeModalNavigationService;
 
         public CardMethodPopupViewModel(
-            INavigationService closeModalNavigationService, 
-            Project project, 
-            ParameterNavigationService<DonationProcessingPopupViewModel,Project> donationProcessingPopupViewModel) 
+            INavigationService closeModalNavigationService,
+            Project project,
+            ParameterNavigationService<DonationProcessingPopupViewModel, Project> donationProcessingPopupViewModel)
             : base(closeModalNavigationService)
         {
             _closeModalNavigationService = closeModalNavigationService;

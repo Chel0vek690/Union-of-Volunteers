@@ -1,26 +1,15 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
+﻿using CommunityToolkit.Mvvm.Input;
+using MainComponents.Popups;
+using MvvmNavigationLib.Services;
 using MvvmNavigationLib.Stores;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Text.Json.Nodes;
-using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using System.Windows.Markup;
 using Union_of_Volunteers.Models;
-using static System.Net.WebRequestMethods;
-using MvvmNavigationLib.Services;
 using Union_of_Volunteers.ViewModels.Pages;
-using MainComponents.Popups;
 
 namespace Union_of_Volunteers.ViewModels.Popups
 {
-    public partial class DonationSentSuccessfullyPopupViewModel: BasePopupViewModel
+    public partial class DonationSentSuccessfullyPopupViewModel : BasePopupViewModel
     {
         private readonly ModalNavigationStore _modalNavigation;
         private readonly NavigationService<MainPageViewModel> _mainNavigationService;
@@ -31,8 +20,8 @@ namespace Union_of_Volunteers.ViewModels.Popups
 
         public DonationSentSuccessfullyPopupViewModel(
             INavigationService closeModalNavigationService,
-            ModalNavigationStore modalNavigation, 
-            Project project, 
+            ModalNavigationStore modalNavigation,
+            Project project,
             NavigationService<MainPageViewModel> mainNavigationService)
             : base(closeModalNavigationService)
         {
